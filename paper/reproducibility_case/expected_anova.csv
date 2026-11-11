@@ -1,0 +1,6 @@
+effect,df,ss_mean_scores,ss_score_effects,mean_square,f_statistic,f_df_numerator,f_df_denominator
+P,9,2800.16667,92.66667,10.2963,2.22935,9,18
+R,2,2755.7,48.2,24.1,2.17238,2 QF,12 QF
+I:R,9,2835.4,79.7,8.85556,3.72044,9,81
+PR,18,2931.5,83.13333,4.61852,1.94035,18,81
+PI:R,81,3204.0,192.8,2.38025,,,

@@ -1,0 +1,23 @@
+{
+  "selftest": "PASS: 416 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.\nCHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48\nCHECK CATEGORY: Tabular import = 5\nCHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12\nCHECK CATEGORY: urGENOVA one-way pilot = 11\nCHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46\nCHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50\nCHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24\nCHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32\nCHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27\nCHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79\nCHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67\nCHECK CATEGORY: Excel import and typed exports = 15",
+  "official_full_report_equal_except_date_and_newlines": true,
+  "downloaded_originals_unchanged": 95,
+  "jar": "/Users/yigui/Documents/GGG/genova-gui/build/build-3vju31dw/input/genova-studio.jar",
+  "jar_sha256": "7231c09f731e9fb1e275b06ed31ec5eb98f63e7531520cf9c1d40d2772851d0a",
+  "excel_fixture": "/Users/yigui/Documents/GGG/genova-gui/validation/独立 Excel 样例.xlsx",
+  "formula_rejected": true,
+  "excel_export_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/independent_result_check.xlsx",
+  "excel_export_typed_numeric": true,
+  "excel_export_fixed_and_g_only_verified": true,
+  "ur_pilot_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/ur_pilot_result_check.xlsx",
+  "ur_two_way_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/ur_two_way_manual_d_result_check.xlsx",
+  "ur_nested_cross_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/ur_nested_cross_manual_a_result_check.xlsx",
+  "ur_crossed_missing_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/ur_crossed_missing_manual_f_result_check.xlsx",
+  "ur_nested_missing_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/ur_nested_missing_manual_g_result_check.xlsx",
+  "ur_matrix_sampling_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/ur_matrix_sampling_manual_h_result_check.xlsx",
+  "m_pxi_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/m_pxi_manual_b_result_check.xlsx",
+  "m_pir_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/m_pir_manual_c_result_check.xlsx",
+  "m_unequal_weight_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/m_pxi_manual_d_unequal_weights_check.xlsx",
+  "bundled_runtime_selftest": "PASS: 416 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.\nCHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48\nCHECK CATEGORY: Tabular import = 5\nCHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12\nCHECK CATEGORY: urGENOVA one-way pilot = 11\nCHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46\nCHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50\nCHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24\nCHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32\nCHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27\nCHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79\nCHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67\nCHECK CATEGORY: Excel import and typed exports = 15",
+  "app": "/Users/yigui/Documents/GGG/genova-gui/dist/20261110-164800/GENOVA Studio.app"
+}

@@ -1,0 +1,13 @@
+GENOVA Studio reproducibility case
+
+Design: P x (I:R), random model
+Object of measurement: person (P)
+Facets: rater (R), item nested within rater (I:R)
+G-study sample sizes: P=10, R=3, I:R=4
+Input columns: person, rater, item, score
+Column mapping: score=score; object=person; rater=rater; item=item
+Facet status: rater=random; item=random
+Nesting: item nested within rater
+D-study: R=3; I:R=1,2,3,4
+Expected observations: 10 x 3 x 4 = 120
+Reference: official jGENOVA regression output retained with the project.

@@ -1,0 +1,5 @@
+design,persons,raters,items_per_rater,universe_score_variance,expected_observed_variance,relative_error_variance,absolute_error_variance,mean_variance,g_coefficient,phi
+001-001,10,3,1,0.47315,1.45309,0.97994,1.30417,0.46954,0.32562,0.26622
+001-002,10,3,2,0.47315,1.05638,0.58323,0.79954,0.32194,0.4479,0.37177
+001-003,10,3,3,0.47315,0.92414,0.45099,0.63133,0.27275,0.51199,0.42839
+001-004,10,3,4,0.47315,0.85802,0.38488,0.54722,0.24815,0.55144,0.4637

@@ -1,0 +1,387 @@
+
+
+
+                               GGGGGGGGGG   EEEEEEEEEEEE  NN        NN    OOOOOOOO    VV        VV   AAAAAAAAAA
+                              GGGGGGGGGGGG  EEEEEEEEEEEE  NNN       NN   OOOOOOOOOO   VV        VV  AAAAAAAAAAAA
+                              GG         G  EE            NNNN      NN  OO        OO  VV        VV  AA        AA
+                          jj  GG            EE            NN NN     NN  OO        OO   VV      VV   AA        AA
+                          jj  GG            EE            NN  NN    NN  OO        OO   VV      VV   AA        AA
+                          jj  GG            EE            NN   NN   NN  OO        OO   VV      VV   AA        AA
+                          jj  GG            EE            NN    NN  NN  OO        OO    VV    VV    AA        AA
+                          jj  GG            EEEEEEEE      NN     NN NN  OO        OO    VV    VV    AA        AA
+                          jj  GG      GGGG  EEEEEEEE      NN      NNNN  OO        OO    VV    VV    AAAAAAAAAAAA
+                          jj  GG      GGGG  EE            NN       NNN  OO        OO     VV  VV     AAAAAAAAAAAA
+                          jj  GG        GG  EE            NN        NN  OO        OO     VV  VV     AA        AA
+                          jj  GG        GG  EE            NN        NN  OO        OO     VV  VV     AA        AA
+                jj        jj  GG        GG  EE            NN        NN  OO        OO      V  V      AA        AA
+                 jj      jj   GG        GG  EE            NN        NN  OO        OO      VVVV      AA        AA
+                  jj    jj    GGGGGGGGGGGG  EEEEEEEEEEEE  NN        NN   OOOOOOOOOO       VVVV      AA        AA
+                   jjjjjj      GGGGGGGGGG   EEEEEEEEEEEE  NN        NN    OOOOOOOO         VV       AA        AA
+
+                                            A GENeralized Analysis Of VAriance System
+                                                    ___                  _  __
+
+                                       jGENOVA IS A JAVA 8 program for Analysis of Variance
+                                       and Generalizability Analysis with Balanced Designs
+
+                                                             Authors
+
+                                                       Joe E. Crick, Ed.D.
+                                        Chief Technology and Information Officer, Retired
+                                               National Board of Medical Examiners
+
+                                                     Robert L. Brennan, Ed.D.
+                                                    Lindquist Chair, Emeritus
+                                                        University of Iowa
+
+                                                           Version 1.0
+                                                          January, 2021
+                               jGenova has been checked for accuracy of output, however the authors
+                                can make no assurances that the program is totally without error.
+
+                     The FORTRAN version of GENOVA was developed in part under contract No. N00123-78-C-1206
+                                 with the Navy Personnel Research and Development Center (NPRDC);
+                             Robert L. Brennan Principal Investigator.  jGenova does not necessarily
+                        reflect NPRDC positions or policy, and no official endorsement should be inferred.
+
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       1
+
+                                                    CONTROL CARD INPUT LISTING
+ 
+  GSTUDY      P X (I:R) DESIGN -- RANDOM MODEL
+  OPTIONS     RECORDS 2
+  EFFECT      * P 10 0
+  EFFECT      + R  3 0
+  EFFECT      + I:R 4 0
+  FORMAT       0 0
+  PROCESS
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       2
+
+                                             G Study P X (I:R) DESIGN -- RANDOM MODEL
+
+                                            Expanded Main and Interaction Effect Table
+ 
+         (** = Infinite)    P         R         I                  Total   Degrees
+         Sample Size       10         3         4        Primary  Number     of
+         Universe Size   ****      ****      ****        Indices  Indices  Freedom
+         ____________________________________________
+        |              |         |         |         |
+        |  P           |    1    |    0    |    0    |      1        1          9
+        |  R           |    0    |    1    |    0    |      1        1          2
+        |  I:R         |    0    |    2    |    1    |      1        2          9
+        |______________|_________|_________|_________|
+        |              |         |         |         |
+        |  PR          |    1    |    1    |    0    |      2        2         18
+        |  PI:R        |    1    |    2    |    1    |      2        3         81
+        |______________|_________|_________|_________|
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       3
+
+                                             G Study P X (I:R) DESIGN -- RANDOM MODEL
+
+                                              INPUT RECORD LISTING WITH RECORD MEANS
+
+ RECORD #      1     5.00000     6.00000     5.00000     5.00000     5.00000     3.00000     4.00000     5.00000
+                     6.00000     7.00000     3.00000     3.00000     4.75000
+
+ RECORD #      2     9.00000     3.00000     7.00000     7.00000     7.00000     5.00000     5.00000     5.00000
+                     7.00000     7.00000     5.00000     2.00000     5.75000
+
+ RECORD #      9     9.00000     9.00000     8.00000     8.00000     6.00000     6.00000     6.00000     5.00000
+                     5.00000     8.00000     1.00000     1.00000     6.00000
+
+ RECORD #     10     4.00000     4.00000     4.00000     3.00000     3.00000     5.00000     6.00000     5.00000
+                     5.00000     7.00000     1.00000     1.00000     4.00000
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       4
+
+                                             G Study P X (I:R) DESIGN -- RANDOM MODEL
+
+                                                         CELL MEAN SCORES
+ ________________________________________________________________________________________________________________________________
+
+                                             *** GRAND MEAN =            4.7500000 ***
+ ________________________________________________________________________________________________________________________________
+
+   MEAN SCORES FOR EFFECT:  R              SUBSCRIPT NOTATION:  (R)
+
+         (1) =           5.500000        (2) =           4.800000        (3) =           3.950000
+ ________________________________________________________________________________________________________________________________
+
+   MEAN SCORES FOR EFFECT:  I:R            SUBSCRIPT NOTATION:  (R,I)
+
+       (1,1) =           6.100000      (1,2) =           4.800000      (1,3) =           5.600000      (1,4) =           5.500000
+       (2,1) =           5.300000      (2,2) =           4.300000      (2,3) =           4.700000      (2,4) =           4.900000
+       (3,1) =           4.800000      (3,2) =           5.600000      (3,3) =           2.600000      (3,4) =           2.800000
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       5
+
+                                             G Study P X (I:R) DESIGN -- RANDOM MODEL
+
+                                                           ANOVA TABLE
+         (** = Infinite)    P         R         I
+         Sample Size       10         3         4
+         Universe Size   ****      ****      ****
+        __________________________________________________________________________________________________________________
+                      Degrees      Sums of        Sums of                             (QF = Quasi F Ratio)
+                         of      Squares for    Squares for       Mean            F            F-test Degrees of Freedom
+         Effect       Freedom    Mean Scores   Score Effects     Squares      Statistic        Numerator      Denominator
+        __________________________________________________________________________________________________________________
+         P                  9     2800.16667       92.66667      10.29630       2.22935               9              18
+         R                  2     2755.70000       48.20000      24.10000       2.17238 QF            2 QF           12 QF      
+         I:R                9     2835.40000       79.70000       8.85556       3.72044               9              81
+        __________________________________________________________________________________________________________________
+         PR                18     2931.50000       83.13333       4.61852       1.94035              18              81
+         PI:R              81     3204.00000      192.80000       2.38025 
+        __________________________________________________________________________________________________________________
+         Mean                     2707.50000
+        __________________________________________________________________________________________________________________
+         Total            119                     496.50000
+        __________________________________________________________________________________________________________________
+ Note: for Generalizability Analyses, F-Statistics should be ignored
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       6
+
+                                             G Study P X (I:R) DESIGN -- RANDOM MODEL
+
+                                                         G Study Results
+         (** = Infinite)    P         R         I
+         Sample Size       10         3         4
+         Universe Size   ****      ****      ****                                     QFM = Quadratic Form
+        _____________________________________________________________________________
+                                   M o d e l   V a r i a n c e   C o m p o n e n t s
+                      Degrees      - - - - -   - - - - - - - -   - - - - - - - - - -
+                         of          Using            Using EMS          Standard
+         Effect       Freedom      Algorithm          Equations           Error
+        _____________________________________________________________________________
+         P                  9        0.4731481          0.4731481          0.3855758
+         R                  2        0.3251543          0.3251543          0.4379875
+         I:R                9        0.6475309          0.6475309          0.3794056
+        _____________________________________________________________________________
+         PR                18        0.5595679          0.5595679          0.3766291
+         PI:R              81        2.3802469          2.3802469          0.3694860
+        _____________________________________________________________________________
+          Note: the 'Algorithm' and 'EMS' Estimated Variance Components will be
+               Identical if there are no Negative Estimates
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       7
+
+                                             G Study P X (I:R) DESIGN -- RANDOM MODEL
+
+                                                  Expected Mean Square Equations
+         (** = Infinite)    P         R         I
+         Sample Size       10         3         4
+         Universe Size   ****      ****      ****
+
+ EMS(P)           =  1.00*VC(PI:R)  +  4.00*VC(PR)  +  12.00*VC(P)
+
+ EMS(R)           =  1.00*VC(PI:R)  +  4.00*VC(PR)  +  10.00*VC(I:R)  +  40.00*VC(R)
+
+ EMS(I:R)         =  1.00*VC(PI:R)  +  10.00*VC(I:R)
+
+ EMS(PR)          =  1.00*VC(PI:R)  +  4.00*VC(PR)
+
+ EMS(PI:R)        =  1.00*VC(PI:R)
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       8
+
+                                             G Study P X (I:R) DESIGN -- RANDOM MODEL
+
+                                Variance - Covariance Matrix for Estimated Variance Components (V)
+
+                  P             R             I:R           PR            PI:R          
+
+ P               0.1486687
+ R               0.0044439     0.1918331
+ I:R             0.0000000    -0.0359871     0.1439486
+ PR             -0.0444390    -0.0141849     0.0034130     0.1418495
+ PI:R            0.0000000     0.0034130    -0.0136520    -0.0341300     0.1365199
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page       9
+
+                                                    CONTROL CARD INPUT LISTING
+ 
+  COMMENT
+  COMMENT     FIRST SET OF D STUDY CONTROL CARDS
+  COMMENT 
+  DSTUDY      #1 -- P X (I:R) DESIGN -- I,R - RANDOM
+  DEFFECT     $ P
+
+  DEFFECT       R 3
+
+  DEFFECT       I:R 1 2 3 4
+
+  ENDDSTUDY
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page      10
+
+                                          D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
+
+                                                  D study Design Number 001-001
+       Object of Measurement :      P                       Facets :      R          I:R     
+     G Study Population Size :  Infinite    G Study Universe Sizes :   Infinite    Infinite  
+     D Study Population Size :  Infinite    D Study Universe Sizes :   Infinite    Infinite  
+         D Study Sample Size :     10         D Study Sample Sizes :      3           1      
+ _________________________________________________________________________________________________________________________________
+                          Variance Components in Terms of                            Variance Components in Terms of
+                G Study Universe (of Admissible Observations) Sizes              Study Universe (of Generalization) Sizes
+             __________________________________________________________ ___________________________________________________________
+                                                Variance Components                                        Variance Components
+               Variance     Finite   D Study      for Mean Scores         Variance     Finite   D Study      for Mean Scores
+              Components   Universe Sampling __________________________  Components   Universe Sampling ___________________________
+              for Single     Cor-     Fre-                   Standard    for Single     Cor-     Fre-                   Standard
+ Effect      Observations  rections quencies   Estimates      Errors    Observations  rections quencies   Estimates      Errors    
+ _________________________________________________________________________________________________________________________________
+ P              0.47315     1.0000        1     0.47315       0.38558      0.47315     1.0000        1     0.47315       0.38558
+ R              0.32515     1.0000        3     0.10838       0.14600      0.32515     1.0000        3     0.10838       0.14600
+ I:R            0.64753     1.0000        3     0.21584       0.12647      0.64753     1.0000        3     0.21584       0.12647
+ PR             0.55957     1.0000        3     0.18652       0.12554      0.55957     1.0000        3     0.18652       0.12554
+ PI:R           2.38025     1.0000        3     0.79342       0.12316      2.38025     1.0000        3     0.79342       0.12316
+ _________________________________________________________________________________________________________________________________
+            QFM = Quadratic Form
+ _________________________________________________________________________________________________________________________________
+
+                                                    Standard
+                                          Standard  Error of
+                                Variance Deviation  Variance
+
+              Universe Score     0.47315   0.68786   0.38558
+     Expected Observed Score     1.45309   1.20544   0.37734
+            Lower Case Delta     0.97994   0.98992   0.15279          Generalizability Coefficient =   0.32562   ( 0.48283)
+            Upper Case Delta     1.30417   1.14200   0.21906                                   Phi =   0.26622   ( 0.36280)
+                        Mean     0.46954   0.68523
+ _________________________________________________________________________________________________________________________________
+        Note:  Signal/Noise Ratios are in parentheses
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page      11
+
+                                          D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
+
+                                                  D study Design Number 001-002
+       Object of Measurement :      P                       Facets :      R          I:R     
+     G Study Population Size :  Infinite    G Study Universe Sizes :   Infinite    Infinite  
+     D Study Population Size :  Infinite    D Study Universe Sizes :   Infinite    Infinite  
+         D Study Sample Size :     10         D Study Sample Sizes :      3           2      
+ _________________________________________________________________________________________________________________________________
+                          Variance Components in Terms of                            Variance Components in Terms of
+                G Study Universe (of Admissible Observations) Sizes              Study Universe (of Generalization) Sizes
+             __________________________________________________________ ___________________________________________________________
+                                                Variance Components                                        Variance Components
+               Variance     Finite   D Study      for Mean Scores         Variance     Finite   D Study      for Mean Scores
+              Components   Universe Sampling __________________________  Components   Universe Sampling ___________________________
+              for Single     Cor-     Fre-                   Standard    for Single     Cor-     Fre-                   Standard
+ Effect      Observations  rections quencies   Estimates      Errors    Observations  rections quencies   Estimates      Errors    
+ _________________________________________________________________________________________________________________________________
+ P              0.47315     1.0000        1     0.47315       0.38558      0.47315     1.0000        1     0.47315       0.38558
+ R              0.32515     1.0000        3     0.10838       0.14600      0.32515     1.0000        3     0.10838       0.14600
+ I:R            0.64753     1.0000        6     0.10792       0.06323      0.64753     1.0000        6     0.10792       0.06323
+ PR             0.55957     1.0000        3     0.18652       0.12554      0.55957     1.0000        3     0.18652       0.12554
+ PI:R           2.38025     1.0000        6     0.39671       0.06158      2.38025     1.0000        6     0.39671       0.06158
+ _________________________________________________________________________________________________________________________________
+            QFM = Quadratic Form
+ _________________________________________________________________________________________________________________________________
+
+                                                    Standard
+                                          Standard  Error of
+                                Variance Deviation  Variance
+
+              Universe Score     0.47315   0.68786   0.38558
+     Expected Observed Score     1.05638   1.02780   0.36716
+            Lower Case Delta     0.58323   0.76370   0.12554          Generalizability Coefficient =   0.44790   ( 0.81125)
+            Upper Case Delta     0.79954   0.89417   0.18418                                   Phi =   0.37177   ( 0.59178)
+                        Mean     0.32194   0.56740
+ _________________________________________________________________________________________________________________________________
+        Note:  Signal/Noise Ratios are in parentheses
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page      12
+
+                                          D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
+
+                                                  D study Design Number 001-003
+       Object of Measurement :      P                       Facets :      R          I:R     
+     G Study Population Size :  Infinite    G Study Universe Sizes :   Infinite    Infinite  
+     D Study Population Size :  Infinite    D Study Universe Sizes :   Infinite    Infinite  
+         D Study Sample Size :     10         D Study Sample Sizes :      3           3      
+ _________________________________________________________________________________________________________________________________
+                          Variance Components in Terms of                            Variance Components in Terms of
+                G Study Universe (of Admissible Observations) Sizes              Study Universe (of Generalization) Sizes
+             __________________________________________________________ ___________________________________________________________
+                                                Variance Components                                        Variance Components
+               Variance     Finite   D Study      for Mean Scores         Variance     Finite   D Study      for Mean Scores
+              Components   Universe Sampling __________________________  Components   Universe Sampling ___________________________
+              for Single     Cor-     Fre-                   Standard    for Single     Cor-     Fre-                   Standard
+ Effect      Observations  rections quencies   Estimates      Errors    Observations  rections quencies   Estimates      Errors    
+ _________________________________________________________________________________________________________________________________
+ P              0.47315     1.0000        1     0.47315       0.38558      0.47315     1.0000        1     0.47315       0.38558
+ R              0.32515     1.0000        3     0.10838       0.14600      0.32515     1.0000        3     0.10838       0.14600
+ I:R            0.64753     1.0000        9     0.07195       0.04216      0.64753     1.0000        9     0.07195       0.04216
+ PR             0.55957     1.0000        3     0.18652       0.12554      0.55957     1.0000        3     0.18652       0.12554
+ PI:R           2.38025     1.0000        9     0.26447       0.04105      2.38025     1.0000        9     0.26447       0.04105
+ _________________________________________________________________________________________________________________________________
+            QFM = Quadratic Form
+ _________________________________________________________________________________________________________________________________
+
+                                                    Standard
+                                          Standard  Error of
+                                Variance Deviation  Variance
+
+              Universe Score     0.47315   0.68786   0.38558
+     Expected Observed Score     0.92414   0.96132   0.36601
+            Lower Case Delta     0.45099   0.67156   0.12214          Generalizability Coefficient =   0.51199   ( 1.04912)
+            Upper Case Delta     0.63133   0.79456   0.17989                                   Phi =   0.42839   ( 0.74945)
+                        Mean     0.27275   0.52225
+ _________________________________________________________________________________________________________________________________
+        Note:  Signal/Noise Ratios are in parentheses
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page      13
+
+                                          D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
+
+                                                  D study Design Number 001-004
+       Object of Measurement :      P                       Facets :      R          I:R     
+     G Study Population Size :  Infinite    G Study Universe Sizes :   Infinite    Infinite  
+     D Study Population Size :  Infinite    D Study Universe Sizes :   Infinite    Infinite  
+         D Study Sample Size :     10         D Study Sample Sizes :      3           4      
+ _________________________________________________________________________________________________________________________________
+                          Variance Components in Terms of                            Variance Components in Terms of
+                G Study Universe (of Admissible Observations) Sizes              Study Universe (of Generalization) Sizes
+             __________________________________________________________ ___________________________________________________________
+                                                Variance Components                                        Variance Components
+               Variance     Finite   D Study      for Mean Scores         Variance     Finite   D Study      for Mean Scores
+              Components   Universe Sampling __________________________  Components   Universe Sampling ___________________________
+              for Single     Cor-     Fre-                   Standard    for Single     Cor-     Fre-                   Standard
+ Effect      Observations  rections quencies   Estimates      Errors    Observations  rections quencies   Estimates      Errors    
+ _________________________________________________________________________________________________________________________________
+ P              0.47315     1.0000        1     0.47315       0.38558      0.47315     1.0000        1     0.47315       0.38558
+ R              0.32515     1.0000        3     0.10838       0.14600      0.32515     1.0000        3     0.10838       0.14600
+ I:R            0.64753     1.0000       12     0.05396       0.03162      0.64753     1.0000       12     0.05396       0.03162
+ PR             0.55957     1.0000        3     0.18652       0.12554      0.55957     1.0000        3     0.18652       0.12554
+ PI:R           2.38025     1.0000       12     0.19835       0.03079      2.38025     1.0000       12     0.19835       0.03079
+ _________________________________________________________________________________________________________________________________
+            QFM = Quadratic Form
+ _________________________________________________________________________________________________________________________________
+
+                                                    Standard
+                                          Standard  Error of
+                                Variance Deviation  Variance
+
+              Universe Score     0.47315   0.68786   0.38558
+     Expected Observed Score     0.85802   0.92630   0.36586
+            Lower Case Delta     0.38488   0.62038   0.12171          Generalizability Coefficient =   0.55144   ( 1.22935)
+            Upper Case Delta     0.54722   0.73974   0.17935                                   Phi =   0.46370   ( 0.86464)
+                        Mean     0.24815   0.49814
+ _________________________________________________________________________________________________________________________________
+        Note:  Signal/Noise Ratios are in parentheses
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page      14
+
+                                          D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
+ 
+
+
+                              Summary of D Study Results for set of Control Cards no. 001
+ _________________________________________________________________________________________________________________________________
+                                                                          V a r i a n c e s
+                            Sample sizes               ________________________________________________________
+ D Study        _____________________________________                 Expected     Lower     Upper
+  Design  Index=    $P     R     I                       Universe     Observed      Case      Case               Gen.
+   numb   Univ.=  inf.  inf.  inf.                         Score        Score      Delta     Delta     Mean      Coef.      Phi
+ _________________________________________________________________________________________________________________________________
+001-001            10     3     1                        0.47315      1.45309   0.97994   1.30417   0.46954   0.32562   0.26622
+001-002            10     3     2                        0.47315      1.05638   0.58323   0.79954   0.32194   0.44790   0.37177
+001-003            10     3     3                        0.47315      0.92414   0.45099   0.63133   0.27275   0.51199   0.42839
+001-004            10     3     4                        0.47315      0.85802   0.38488   0.54722   0.24815   0.55144   0.46370
+   jGENOVA 1.0 Nov 10 2026                                                                                           Page      15
+
+                                                    CONTROL CARD INPUT LISTING
+ 
+ FINISH
+ jGENOVA has exited!!

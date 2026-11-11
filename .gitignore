@@ -1,0 +1,29 @@
+# Generated builds and packaged macOS artifacts
+build/
+dist/
+demo/output/
+demo/__pycache__/
+demo/genova-window-recorder
+
+# Editable Word drafts and temporary Office lock files
+paper/*.docx
+paper/~$*
+paper/figures/*.png
+paper/figures/*.svg
+paper/reproducibility_case/*.xlsx
+paper/reproducibility_case/*.zip
+paper/reproducibility_case/*.docx
+paper/reproducibility_case/*.ndjson
+paper/reproducibility_case/previews/
+paper/reproducibility_case/tutorial_render/
+paper/reproducibility_case/source/node_modules/
+
+# Local editor and environment files
+.DS_Store
+.venv/
+venv/
+*.pyc
+*.pyo
+*.swp
+.env
+.env.*
