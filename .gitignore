@@ -17,6 +17,23 @@ paper/reproducibility_case/*.ndjson
 paper/reproducibility_case/previews/
 paper/reproducibility_case/tutorial_render/
 paper/reproducibility_case/source/node_modules/
+# The dependency cache may also be linked in as a symlink, for which the
+# trailing-slash directory rule above does not match.
+paper/reproducibility_case/source/node_modules
+
+# Third-party source material retained locally for validation only
+validation/external_sources/**/*.pdf
+validation/external_sources/**/.DS_Store
+!validation/external_sources/**/SOURCE_MANIFEST.md
+wud3x-osfstorage-archive/
+gleser1965.pdf
+
+# Publisher-owned source template; commit the completed manuscript, not the
+# unmodified template distributed by the journal.
+paper/softwarex_submission_staging_2026-11-18/softwarex-osp-template-v6-2026-03.docx
+
+# Local backup artifacts
+*.bak
 
 # Local editor and environment files
 .DS_Store

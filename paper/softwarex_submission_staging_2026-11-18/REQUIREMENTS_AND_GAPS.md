@@ -1,0 +1,33 @@
+# SoftwareX requirements and GENOVA Studio gap matrix
+
+Checked 18 November 2026 against the live SoftwareX guide and official Word Original Software Publication template Version 6 (March 2026). Status terms: **ready as draft** means a local artifact exists; **open** means it needs work or a decision. This is a preparation tracker, not a declaration of compliance.
+
+| Requirement or submission item | Basis | Current GENOVA Studio evidence | Status and action |
+| --- | --- | --- | --- |
+| Research software with a clear application and reusable contribution | [Elsevier Research Elements SoftwareX description](https://www.elsevier.com/researcher/author/tools-and-resources/research-elements-journals) | GUI workflow, original balanced core, bounded new urGENOVA and mGENOVA engines, reproducibility case, and design-specific validation in draft | **Ready as draft.** Keep statistical claims within tested scope; describe scientific use and potential impact without claiming measured user uptake. |
+| Original Software Publication article type | [SoftwareX Guide for Authors](https://www.sciencedirect.com/journal/softwarex/publish/guide-for-authors) | Current paper is written as an original software article | **Verify** current article type and template in live guide. |
+| Use journal's official manuscript template, including software metadata table | [Publisher's template link](https://legacyfileshare.elsevier.com/promis_misc/softwarex-osp-template.docx) | `softwarex-osp-template-v6-2026-03.docx` retained; five-section article and C1–C8 metadata table populated in `manuscript/GENOVA_Studio_SoftwareX_OSP_template_draft.docx` | **Ready as draft.** Release-dependent fields and author identity remain explicitly pending. |
+| Article length and figure count | [Live SoftwareX guide](https://www.sciencedirect.com/journal/softwarex/publish/guide-for-authors) | Guide says **4,000 words**, excluding title, authors, affiliations, references, and metadata tables; includes abstract, text, captions, and footnotes. At most six figures. Current article has about 1,900 paragraph words including references and three embedded figures. | **Ready as draft.** Recount final article after author and release metadata are fixed. Earlier 3,000-word assumption was incorrect and is superseded. |
+| Publicly inspectable/reusable software and an appropriate license | [Elsevier Research Elements description](https://www.elsevier.com/researcher/author/tools-and-resources/research-elements-journals); current draft's rights audit | GitHub repository exists privately. The project owner reports oral permission from both original jGENOVA authors for use in this project; the exact public redistribution and relicensing terms are not documented in the repository. No resolved repository-wide license or complete third-party notices | **Open, blocking for public release.** Record the scope of permission in writing, identify rights in bundled materials, choose license(s), and decide permitted public release contents. |
+| Stable source version and software citation | Publisher template metadata intent; project release plan | One private initial commit; current validation work is uncommitted; no release DOI | **Open.** Freeze and tag a verified version, prepare citation metadata, and archive that exact version if suitable. Do not claim a DOI until minted. |
+| Reproducible build and independent validation | Project evidence | `build.py`, `validate.py`, 543 self-test checks run from the hash-frozen candidate ZIP's bundled Java runtime, 28 separate Jiang comparisons, Gleser raw-score and CiviConnections downstream checks; hashes, platform, and logs in `validation/BUNDLED_RUNTIME_RELEASE_VALIDATION_2026-11-18.md` | **Ready for the current candidate.** The candidate source worktree is not clean or tagged; rerun the same procedure for the eventual immutable public release and preserve the distinct evidence boundaries. |
+| Example data, documentation, and supplementary material | Project evidence | Reproducibility case, README, screenshots, validation notes | **Open review.** Package only data and figures with confirmed redistribution rights. External article PDFs, OSF archive, and user-supplied scan should not be bundled by default. Provide source citations and acquisition instructions instead. |
+| Author and disclosure metadata | General Elsevier submission workflow; journal guide to verify | Draft includes placeholders; author team and declarations not finalized | **Open.** Confirm names, affiliations, corresponding author, roles, funding, conflicts, and any current AI disclosure requirement; complete journal forms. |
+| Final submission files | [Live SoftwareX guide](https://www.sciencedirect.com/journal/softwarex/publish/guide-for-authors) | Journal-template Word draft, three embedded figures, validation table, and editable source text staged | **Open.** Complete author/release fields, declarations, license, public GitHub code, cover letter, and submission metadata. |
+
+## Evidence boundaries to preserve in the submitted text
+
+- The 543 count is the current conventional self-test suite. Jiang OSF subdesign validation reports 28 additional comparisons separately.
+- The complete 543 suite passed with the Java runtime and JAR extracted from the hash-frozen candidate ZIP. This establishes the current packaged candidate, not a future public release built from a later source state.
+- Gleser et al. Table 3 provides raw-score-to-result evidence for one balanced `P × I × J` case, with its printed item-component discrepancy disclosed.
+- CiviConnections checks published components through D-study results. It does not test raw observation import or component estimation for that dataset.
+- Jiang's two classical balanced subdesigns do not reproduce its Bayesian joint mixed-format model and do not validate a full mGENOVA joint design.
+- The six urGENOVA and two mGENOVA paths remain bounded implementations. No general parity with historical Windows executables is claimed.
+
+## Recheck log
+
+| Date | Source | Outcome |
+| --- | --- | --- |
+| 2026-11-18 | Elsevier Research Elements page | Directly accessible; confirms SoftwareX focus and links to journal guide and official template. |
+| 2026-11-18 | SoftwareX live Guide for Authors | Read through the in-app browser. Confirmed 4,000-word limit, six-figure cap, five required sections, official template, public GitHub repository, README.md and LICENSE.txt, and source under `repo/src`. |
+| 2026-11-18 | Publisher Word template | Downloaded Original Software Publication template Version 6 (March 2026); retained locally and used to build the article draft. |

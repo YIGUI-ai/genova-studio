@@ -1,9 +1,9 @@
 {
-  "selftest": "PASS: 416 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.\nCHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48\nCHECK CATEGORY: Tabular import = 5\nCHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12\nCHECK CATEGORY: urGENOVA one-way pilot = 11\nCHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46\nCHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50\nCHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24\nCHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32\nCHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27\nCHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79\nCHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67\nCHECK CATEGORY: Excel import and typed exports = 15",
+  "selftest": "PASS: 543 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.\nCHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48\nCHECK CATEGORY: Tabular import = 5\nCHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12\nCHECK CATEGORY: urGENOVA one-way pilot = 11\nCHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46\nCHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50\nCHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24\nCHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32\nCHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27\nCHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79\nCHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67\nCHECK CATEGORY: Published CiviConnections EPM component oracle = 51\nCHECK CATEGORY: Gleser Cronbach Rajaratnam 1965 Table 3 = 76\nCHECK CATEGORY: Excel import and typed exports = 15",
   "official_full_report_equal_except_date_and_newlines": true,
   "downloaded_originals_unchanged": 95,
-  "jar": "/Users/yigui/Documents/GGG/genova-gui/build/build-3vju31dw/input/genova-studio.jar",
-  "jar_sha256": "7231c09f731e9fb1e275b06ed31ec5eb98f63e7531520cf9c1d40d2772851d0a",
+  "jar": "/Users/yigui/Documents/GGG/genova-gui/build/build-265l5k8o/input/genova-studio.jar",
+  "jar_sha256": "9883b68ddcf9211d2957d09cf300bc231fc130142a648e0186ceefecb4e85c6f",
   "excel_fixture": "/Users/yigui/Documents/GGG/genova-gui/validation/独立 Excel 样例.xlsx",
   "formula_rejected": true,
   "excel_export_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/independent_result_check.xlsx",
@@ -18,6 +18,83 @@
   "m_pxi_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/m_pxi_manual_b_result_check.xlsx",
   "m_pir_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/m_pir_manual_c_result_check.xlsx",
   "m_unequal_weight_excel_verified": "/Users/yigui/Documents/GGG/genova-gui/validation/m_pxi_manual_d_unequal_weights_check.xlsx",
-  "bundled_runtime_selftest": "PASS: 416 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.\nCHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48\nCHECK CATEGORY: Tabular import = 5\nCHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12\nCHECK CATEGORY: urGENOVA one-way pilot = 11\nCHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46\nCHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50\nCHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24\nCHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32\nCHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27\nCHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79\nCHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67\nCHECK CATEGORY: Excel import and typed exports = 15",
-  "app": "/Users/yigui/Documents/GGG/genova-gui/dist/20261110-164800/GENOVA Studio.app"
+  "osf_jiang_subdesigns": {
+    "status": "PASS",
+    "total_checks": 28,
+    "cases": [
+      {
+        "case": "FRT task 1 (P × R)",
+        "persons": 533,
+        "facet_levels": 2,
+        "observations": 1066,
+        "ss": [
+          944.1575984990619,
+          11.767354596622758,
+          320.2326454033771
+        ],
+        "ms": [
+          1.7747323280057554,
+          11.767354596622758,
+          0.6019410627883028
+        ],
+        "vc": [
+          0.5863956326087263,
+          0.020948243027832,
+          0.6019410627883028
+        ],
+        "d": [
+          0.5863956326087263,
+          0.3009705313941514,
+          0.31144465290806744,
+          0.6608271268351231,
+          0.6531179788521062
+        ],
+        "checks": 14
+      },
+      {
+        "case": "MCQ items 1–9 (P × I)",
+        "persons": 533,
+        "facet_levels": 9,
+        "observations": 4797,
+        "ss": [
+          263.20075046904316,
+          22.572024181780282,
+          909.8724202626641
+        ],
+        "ms": [
+          0.4947382527613593,
+          2.8215030227225353,
+          0.21378581303164101
+        ],
+        "vc": [
+          0.031216937747746476,
+          0.0048925275979191255,
+          0.21378581303164101
+        ],
+        "d": [
+          0.031216937747746476,
+          0.02375397922573789,
+          0.02429759340328446,
+          0.5678809717291817,
+          0.562320118723848
+        ],
+        "checks": 14
+      }
+    ]
+  },
+  "bundled_runtime_selftest": "PASS: 543 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.\nCHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48\nCHECK CATEGORY: Tabular import = 5\nCHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12\nCHECK CATEGORY: urGENOVA one-way pilot = 11\nCHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46\nCHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50\nCHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24\nCHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32\nCHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27\nCHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79\nCHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67\nCHECK CATEGORY: Published CiviConnections EPM component oracle = 51\nCHECK CATEGORY: Gleser Cronbach Rajaratnam 1965 Table 3 = 76\nCHECK CATEGORY: Excel import and typed exports = 15",
+  "app": "/Users/yigui/Documents/GGG/genova-gui/dist/20261118-214156/GENOVA Studio.app",
+  "packaged_jar_sha256": "9883b68ddcf9211d2957d09cf300bc231fc130142a648e0186ceefecb4e85c6f",
+  "release_candidate_zip": "/Users/yigui/Documents/GGG/genova-gui/dist/20261118-214156/GENOVA Studio.zip",
+  "release_candidate_zip_sha256": "71e931521e6555e45d97f88691f84c2304bca27d6406b74325f0c758e5cce8ce",
+  "zip_extracted_jar_sha256": "9883b68ddcf9211d2957d09cf300bc231fc130142a648e0186ceefecb4e85c6f",
+  "zip_extracted_signature_verified": true,
+  "zip_extracted_bundled_runtime_selftest": "PASS: 543 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.\nCHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48\nCHECK CATEGORY: Tabular import = 5\nCHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12\nCHECK CATEGORY: urGENOVA one-way pilot = 11\nCHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46\nCHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50\nCHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24\nCHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32\nCHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27\nCHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79\nCHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67\nCHECK CATEGORY: Published CiviConnections EPM component oracle = 51\nCHECK CATEGORY: Gleser Cronbach Rajaratnam 1965 Table 3 = 76\nCHECK CATEGORY: Excel import and typed exports = 15",
+  "bundled_java_version": "openjdk version \"25.0.2\" 2026-01-20\nOpenJDK Runtime Environment Homebrew (build 25.0.2)\nOpenJDK 64-Bit Server VM Homebrew (build 25.0.2, mixed mode)",
+  "platform": {
+    "system": "Darwin",
+    "release": "27.2.0",
+    "machine": "arm64",
+    "mac_ver": "27.2.1"
+  }
 }

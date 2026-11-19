@@ -1,6 +1,6 @@
 # GENOVA Studio paper: evidence and submission gates
 
-Working companion to `GENOVA_Studio_SoftwareX_draft.md`. Check the source artifact and rerun validation against the tagged release before converting the manuscript to the current journal template.
+Historical working companion to `GENOVA_Studio_SoftwareX_draft.md`. For the current 18 November 2026 submission comparison, use `softwarex_submission_staging_2026-11-18/REQUIREMENTS_AND_GAPS.md`. Check the source artifact and rerun validation against the tagged release before converting the manuscript to the current journal template.
 
 | Manuscript claim | Current evidence | Status / next action |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ Working companion to `GENOVA_Studio_SoftwareX_draft.md`. Check the source artifa
 | Balanced official report agreement | `validation/results.json`; `validation/official_regression.txt`; `../jGENOVA1/GENout.txt` | Reported equal except date and newline style; rerun on final tagged version. |
 | Six urGENOVA G-study pilots | `UNIFIED_DESIGN.md`; six engine/design pairs; `SelfTest.java` | Manual and independent cases supported; no original executable parity or D-study. |
 | Two mGENOVA G/D pilots | `UNIFIED_DESIGN.md`; `MpXi*` and `MpIr*`; `SelfTest.java` | Manual Appendices B/C/D supported within restricted designs; no original executable parity. |
-| 416 checks and bundled runtime | `validation/results.json`, `validation/selftest.log`, `validation/packaged_selftest.log`; categorized output produced by `SelfTest.java` | Rerun completed 10 November 2026 in the development and bundled runtimes; rerun again for the immutable paper release. |
+| 543 current self-test checks; 28 separate OSF comparisons | `validation/results.json`, `validation/packaged_zip_selftest.log`, `validation/release_candidate_manifest.json`, `validation/BUNDLED_RUNTIME_RELEASE_VALIDATION_2026-11-18.md`, `validation/osf_jiang_subdesigns.log`; categorized output produced by `SelfTest.java` | The full 543-check suite passed on 18 November 2026 with the Java runtime and JAR extracted from the hash-frozen candidate ZIP. The 28 Jiang comparisons passed separately. The candidate source worktree is not clean or tagged, so repeat this procedure for the eventual immutable public release. |
 | D-study heatmap and 3D surface | `DStudyGrid.java`, `HeatmapPanel.java`, `SurfacePanel.java`, `validate.py` | State that only grid points are computed; intermediate surface is interpolation. |
 | No demonstrated usability gain or external adoption | No study or external usage record in the reviewed project materials | Do not claim improvement in speed, error rate, or adoption until measured. |
 | Public release and license | Official project site allows redistribution of programs; no explicit source relicensing terms established in reviewed materials | Resolve jGENOVA source rights, new-code license, third-party notices, and permitted repository contents before public upload. |

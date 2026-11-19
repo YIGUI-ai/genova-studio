@@ -44,7 +44,7 @@
                              Robert L. Brennan Principal Investigator.  jGenova does not necessarily
                         reflect NPRDC positions or policy, and no official endorsement should be inferred.
 
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       1
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       1
 
                                                     CONTROL CARD INPUT LISTING
  
@@ -55,7 +55,7 @@
   EFFECT      + I:R 4 0
   FORMAT       0 0
   PROCESS
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       2
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       2
 
                                              G Study P X (I:R) DESIGN -- RANDOM MODEL
 
@@ -74,7 +74,7 @@
         |  PR          |    1    |    1    |    0    |      2        2         18
         |  PI:R        |    1    |    2    |    1    |      2        3         81
         |______________|_________|_________|_________|
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       3
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       3
 
                                              G Study P X (I:R) DESIGN -- RANDOM MODEL
 
@@ -91,7 +91,7 @@
 
  RECORD #     10     4.00000     4.00000     4.00000     3.00000     3.00000     5.00000     6.00000     5.00000
                      5.00000     7.00000     1.00000     1.00000     4.00000
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       4
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       4
 
                                              G Study P X (I:R) DESIGN -- RANDOM MODEL
 
@@ -111,7 +111,7 @@
        (1,1) =           6.100000      (1,2) =           4.800000      (1,3) =           5.600000      (1,4) =           5.500000
        (2,1) =           5.300000      (2,2) =           4.300000      (2,3) =           4.700000      (2,4) =           4.900000
        (3,1) =           4.800000      (3,2) =           5.600000      (3,3) =           2.600000      (3,4) =           2.800000
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       5
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       5
 
                                              G Study P X (I:R) DESIGN -- RANDOM MODEL
 
@@ -136,7 +136,7 @@
          Total            119                     496.50000
         __________________________________________________________________________________________________________________
  Note: for Generalizability Analyses, F-Statistics should be ignored
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       6
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       6
 
                                              G Study P X (I:R) DESIGN -- RANDOM MODEL
 
@@ -159,7 +159,7 @@
         _____________________________________________________________________________
           Note: the 'Algorithm' and 'EMS' Estimated Variance Components will be
                Identical if there are no Negative Estimates
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       7
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       7
 
                                              G Study P X (I:R) DESIGN -- RANDOM MODEL
 
@@ -177,7 +177,7 @@
  EMS(PR)          =  1.00*VC(PI:R)  +  4.00*VC(PR)
 
  EMS(PI:R)        =  1.00*VC(PI:R)
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       8
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       8
 
                                              G Study P X (I:R) DESIGN -- RANDOM MODEL
 
@@ -190,7 +190,7 @@
  I:R             0.0000000    -0.0359871     0.1439486
  PR             -0.0444390    -0.0141849     0.0034130     0.1418495
  PI:R            0.0000000     0.0034130    -0.0136520    -0.0341300     0.1365199
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page       9
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page       9
 
                                                     CONTROL CARD INPUT LISTING
  
@@ -205,7 +205,7 @@
   DEFFECT       I:R 1 2 3 4
 
   ENDDSTUDY
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page      10
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page      10
 
                                           D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
 
@@ -244,7 +244,7 @@
                         Mean     0.46954   0.68523
  _________________________________________________________________________________________________________________________________
         Note:  Signal/Noise Ratios are in parentheses
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page      11
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page      11
 
                                           D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
 
@@ -283,7 +283,7 @@
                         Mean     0.32194   0.56740
  _________________________________________________________________________________________________________________________________
         Note:  Signal/Noise Ratios are in parentheses
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page      12
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page      12
 
                                           D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
 
@@ -322,7 +322,7 @@
                         Mean     0.27275   0.52225
  _________________________________________________________________________________________________________________________________
         Note:  Signal/Noise Ratios are in parentheses
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page      13
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page      13
 
                                           D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
 
@@ -361,7 +361,7 @@
                         Mean     0.24815   0.49814
  _________________________________________________________________________________________________________________________________
         Note:  Signal/Noise Ratios are in parentheses
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page      14
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page      14
 
                                           D Study #1 -- P X (I:R) DESIGN -- I,R - RANDOM
  
@@ -379,7 +379,7 @@
 001-002            10     3     2                        0.47315      1.05638   0.58323   0.79954   0.32194   0.44790   0.37177
 001-003            10     3     3                        0.47315      0.92414   0.45099   0.63133   0.27275   0.51199   0.42839
 001-004            10     3     4                        0.47315      0.85802   0.38488   0.54722   0.24815   0.55144   0.46370
-   jGENOVA 1.0 Nov 10 2026                                                                                           Page      15
+   jGENOVA 1.0 Nov 18 2026                                                                                           Page      15
 
                                                     CONTROL CARD INPUT LISTING
  

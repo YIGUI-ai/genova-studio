@@ -442,6 +442,117 @@ public final class SelfTest {
         near(Double.toString(independentNestedB.composite()[1]),0.25,"nested unequal-weight relative MSE");
         near(Double.toString(independentNestedB.composite()[2]),43.5,"nested unequal-weight absolute MSE");
         check(Double.isNaN(independentNestedB.composite()[3]),"nested unequal-weight G unavailable");
+        category("Published CiviConnections EPM component oracle");
+        // Karatoprak Ersen, Lee, & Yarbrough (2026), Supplements 1 and 2.
+        // Effects: s, G:s, P:G:s, I, sI, GI:s, PI:G:s.  Published G-study
+        // inputs are rounded, so comparisons use the project's 6e-6 tolerance.
+        double[][] civiG = {
+            {0.01287,0.02431,0.05245}, {0.02487,0.03866,0.10614},
+            {0.23430,0.26517,0.79315}, {0.12978,0.08231,0.41524},
+            {0.01083,0.01888,0.05162}, {0.02310,0.01607,0.05763},
+            {0.57662,0.49081,1.33374}
+        };
+        double nGs=2.348624,nPGs=8.276944,nI=25;
+        double[] civiDivisors={1,nGs,nPGs,nI,nI,nGs*nI,nPGs*nGs*nI};
+        boolean[] civiUniverse={true,false,false,false,false,false,false};
+        boolean[] civiRelative={false,true,true,false,true,true,true};
+        boolean[] civiAbsolute={false,true,true,true,true,true,true};
+        MComponentDStudy.Analysis civi=MComponentDStudy.calculate(
+            civiG,civiDivisors,civiUniverse,civiRelative,civiAbsolute);
+        near(Double.toString(civiDivisors[6]),485.985733,"published corrected PI:G:s divisor");
+        double[][] civiDExpected={
+            {0.0128700000,0.0243100000,0.0076350000},
+            {0.0105891790,0.0164607021,0.0090712690},
+            {0.0283075493,0.0320371867,0.0177408473},
+            {0.0051912000,0.0032924000,0.0040630000},
+            {0.0004332000,0.0007552000,0.0004382000},
+            {0.0003934219,0.0002736922,0.0001571984},
+            {0.0011864957,0.0010099268,0.0002739895}
+        };
+        for(int effect=0;effect<civiDExpected.length;effect++)for(int column=0;column<3;column++)
+            near(Double.toString(civi.dComponents()[effect][column]),civiDExpected[effect][column],
+                "published multivariate D component");
+        double[][] civiMetricsExpected={
+            {0.01287000,0.04090985,0.04610105,0.23930898,0.21824270,0.31459419,0.27916937},
+            {0.02431000,0.05053671,0.05382911,0.32479719,0.31111182,0.48103648,0.45161440},
+            {0.02191000,0.03608355,0.03644115,0.37780067,0.37548535,0.60720198,0.60124346}
+        };
+        for(int row=0;row<3;row++)for(int column=0;column<7;column++)
+            near(Double.toString(civi.metrics()[row][column]),civiMetricsExpected[row][column],
+                "published multivariate D metric");
+        double[] civiDirectDifference={0.02190,0.02093,0.20579,0.00894,0.00779,0.02072,0.80111};
+        double[] civiUnivariate=MComponentDStudy.calculateUnivariate(civiDirectDifference,civiDivisors,
+            civiUniverse,civiRelative,civiAbsolute);
+        double[] civiUnivariateExpected={0.02190000,0.03608755,0.03644515,0.37766726,0.37535252,0.60685745,0.60090296};
+        for(int column=0;column<7;column++)near(Double.toString(civiUnivariate[column]),
+            civiUnivariateExpected[column],"published univariate difference metric");
+        check(Math.abs(civi.metrics()[2][3]-civiUnivariate[3])<0.00014,
+            "multivariate and direct-univariate difference G agree within published rounding");
+        category("Gleser Cronbach Rajaratnam 1965 Table 3");
+        DataTable gleser;
+        try(var in=SelfTest.class.getResourceAsStream("/samples/gleser1965_table3.csv"))
+            { gleser=DataTable.parse(new String(in.readAllBytes(),StandardCharsets.UTF_8)); }
+        check(gleser.rows().size()==144,"Table 3 has 144 transcribed observations");
+        Map<String,Integer> gleserPersonTotals=new LinkedHashMap<>();
+        Map<String,Integer> gleserCellTotals=new LinkedHashMap<>();
+        int gleserGrand=0;
+        for(List<String> row:gleser.rows()) {
+            int score=Integer.parseInt(row.get(3)); gleserGrand+=score;
+            gleserPersonTotals.merge(row.get(0),score,Integer::sum);
+            gleserCellTotals.merge(row.get(1)+"/"+row.get(2),score,Integer::sum);
+        }
+        check(gleserGrand==300,"Table 3 grand total");
+        int[] gleserRowTotals={20,22,27,22,41,13,17,14,26,25,29,44};
+        for(int p=0;p<12;p++)check(gleserPersonTotals.get(""+(char)('a'+p))==gleserRowTotals[p],
+            "Table 3 person marginal " + p);
+        int[] gleserColumnTotals={29,30,33,24,9,9,35,29,29,32,21,20};
+        for(int i=0;i<6;i++)for(int j=0;j<2;j++)
+            check(gleserCellTotals.get("I"+(i+1)+"/J"+(j+1))==gleserColumnTotals[2*i+j],
+                "Table 3 item/judge marginal " + i + "/" + j);
+        Results gleserResult=Engine.run(Design.prepare(gleser,"score","person",
+            List.of(new Design.Facet("item","",false,""),new Design.Facet("judge","",false,"")),true));
+        Map<String,double[]> gleserAnova=Map.of(
+            "person",new double[]{11,84.1667,7.6515},
+            "judge",new double[]{1,1.0000,1.0000},
+            "item",new double[]{5,64.6667,12.9333},
+            "person × judge",new double[]{11,19.5000,1.7727},
+            "person × item",new double[]{55,81.1667,1.4758},
+            "item × judge",new double[]{5,4.3333,0.8667},
+            "person × item × judge",new double[]{55,34.1666,0.6212});
+        check(gleserResult.anova().rows().size()==7,"Table 3 has seven ANOVA effects");
+        for(List<String> row:gleserResult.anova().rows()) {
+            double[] expected=gleserAnova.get(row.get(0));
+            check(expected!=null,"Table 3 effect "+row.get(0));
+            check(Integer.parseInt(row.get(1))==(int)expected[0],"Table 3 df "+row.get(0));
+            check(Math.abs(Double.parseDouble(row.get(2))-expected[1])<0.00011,"Table 3 SS "+row.get(0));
+            check(Math.abs(Double.parseDouble(row.get(3))-expected[2])<0.00011,"Table 3 MS "+row.get(0));
+        }
+        // The paper prints 0.471 for item, but its Eq. 17 and Table 3 MS give
+        // (12.9333 - 1.4758 - 0.8667 + 0.6212) / 24 = 0.46717.
+        Map<String,Double> gleserVC=Map.of(
+            "person",0.419,"item",0.46717,"judge",-0.014,
+            "person × item",0.427,"person × judge",0.192,
+            "item × judge",0.021,"person × item × judge",0.621);
+        check(gleserResult.components().rows().size()==7,"Table 3 has seven variance components");
+        for(List<String> row:gleserResult.components().rows()) {
+            Double expected=gleserVC.get(row.get(0));
+            check(expected!=null,"Table 3 component effect "+row.get(0));
+            check(Math.abs(Double.parseDouble(row.get(2))-expected)<0.001,
+                "Table 3 VC "+row.get(0)+": engine="+row.get(2)+", paper="+expected);
+        }
+        // The paper's two universe definitions yield different D-study ratios.
+        double gleserA=0.419/(0.419+0.427/6+0.192/2+0.621/12);
+        double gleserB=(0.419+0.427/6)/(0.419+0.427/6+0.192/2+0.621/12);
+        check(Math.abs(gleserA-0.657)<0.001,"paper universe A ratio");
+        check(Math.abs(gleserB-0.768)<0.001,"paper universe B ratio");
+        check(gleserResult.decisions().rows().size()==1,"Table 3 default D-study scenario");
+        check(Math.abs(Double.parseDouble(gleserResult.decisions().rows().get(0).get(5))-0.657)<0.001,
+            "Table 3 engine G matches paper universe A");
+        Results gleserFixedItems=Engine.run(Design.prepare(gleser,"score","person",
+            List.of(new Design.Facet("item","",true,""),new Design.Facet("judge","",false,"")),true));
+        check(gleserFixedItems.decisions().rows().size()==1,"Table 3 fixed-item D-study scenario");
+        check(Math.abs(Double.parseDouble(gleserFixedItems.decisions().rows().get(0).get(5))-0.768)<0.001,
+            "Table 3 engine G matches paper universe B");
         category("Excel import and typed exports");
         if (args.length>0) {
             Path workbook=Path.of(args[0]);

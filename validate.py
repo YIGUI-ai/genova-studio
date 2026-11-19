@@ -3,8 +3,10 @@ from pathlib import Path
 import csv
 import hashlib
 import json
+import platform
 import re
 import subprocess
+import tempfile
 from openpyxl import Workbook, load_workbook
 
 HERE = Path(__file__).resolve().parent
@@ -173,6 +175,14 @@ result = {'selftest': test.stdout.strip(), 'official_full_report_equal_except_da
           'm_pxi_excel_verified': str(m_export),
           'm_pir_excel_verified': str(m_nested_export),
           'm_unequal_weight_excel_verified': str(m_unequal_export)}
+osf_source = ROOT / 'wud3x-osfstorage-archive'
+if osf_source.is_dir():
+    osf_check = subprocess.run(['python3', str(HERE / 'validation/osf_jiang_2024/validate_subdesigns.py')],
+                               capture_output=True, text=True, timeout=180)
+    (RUN / 'osf_jiang_subdesigns.log').write_text(osf_check.stdout + osf_check.stderr)
+    print(osf_check.stdout + osf_check.stderr)
+    osf_check.check_returncode()
+    result['osf_jiang_subdesigns'] = json.loads(osf_check.stdout)
 if 'app' in build:
     app = Path(build['app'])
     packaged_jar = app / 'Contents/app/genova-studio.jar'
@@ -184,5 +194,77 @@ if 'app' in build:
     assert packaged_jar.read_bytes() == jar.read_bytes()
     result['bundled_runtime_selftest'] = packaged_test.stdout.strip()
     result['app'] = str(app)
+    result['packaged_jar_sha256'] = hashlib.sha256(packaged_jar.read_bytes()).hexdigest()
+    zip_path = app.parent / 'GENOVA Studio.zip'
+    if zip_path.is_file():
+        with tempfile.TemporaryDirectory(prefix='genova-release-validation-', dir='/private/tmp') as extracted:
+            extract = subprocess.run(['/usr/bin/ditto', '-x', '-k', str(zip_path), extracted],
+                                     capture_output=True, text=True)
+            extract.check_returncode()
+            extracted_app = Path(extracted) / 'GENOVA Studio.app'
+            signature = subprocess.run(['/usr/bin/codesign', '--verify', '--deep', '--strict',
+                                        str(extracted_app)], capture_output=True, text=True)
+            signature.check_returncode()
+            extracted_jar = extracted_app / 'Contents/app/genova-studio.jar'
+            extracted_java = extracted_app / 'Contents/runtime/Contents/Home/bin/java'
+            assert extracted_jar.read_bytes() == jar.read_bytes()
+            extracted_test = subprocess.run([str(extracted_java), '-Djava.awt.headless=true',
+                                             '-cp', str(extracted_jar), 'org.genova.gui.SelfTest',
+                                             *test_args], capture_output=True, text=True, timeout=60)
+            (RUN / 'packaged_zip_selftest.log').write_text(extracted_test.stdout + extracted_test.stderr)
+            extracted_test.check_returncode()
+            runtime_version = subprocess.run([str(extracted_java), '-version'],
+                                             capture_output=True, text=True, timeout=15)
+            runtime_version.check_returncode()
+            result['release_candidate_zip'] = str(zip_path)
+            result['release_candidate_zip_sha256'] = hashlib.sha256(zip_path.read_bytes()).hexdigest()
+            result['zip_extracted_jar_sha256'] = hashlib.sha256(extracted_jar.read_bytes()).hexdigest()
+            result['zip_extracted_signature_verified'] = True
+            result['zip_extracted_bundled_runtime_selftest'] = extracted_test.stdout.strip()
+            result['bundled_java_version'] = (runtime_version.stdout + runtime_version.stderr).strip()
+            result['platform'] = {
+                'system': platform.system(),
+                'release': platform.release(),
+                'machine': platform.machine(),
+                'mac_ver': platform.mac_ver()[0]
+            }
+            git_head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=HERE,
+                                      capture_output=True, text=True, check=True).stdout.strip()
+            git_status = subprocess.run(['git', 'status', '--short'], cwd=HERE,
+                                        capture_output=True, text=True, check=True).stdout
+            git_diff = subprocess.run(['git', 'diff', '--binary'], cwd=HERE,
+                                      capture_output=True, check=True).stdout
+            build_inputs = [HERE / 'build.py', HERE / 'validate.py']
+            build_inputs += sorted((HERE / 'src').rglob('*.java'))
+            build_inputs += sorted((HERE / 'samples').glob('*.csv'))
+            build_inputs += sorted((ROOT / 'workspace/jGENOVA1.0/src').rglob('*.java'))
+            manifest = {
+                'status': 'PASS',
+                'scope': 'Frozen ZIP, extracted bundled Java runtime, full 543-check SelfTest',
+                'git_head': git_head,
+                'git_worktree_clean': not bool(git_status.strip()),
+                'git_status_at_validation': git_status.splitlines(),
+                'git_diff_sha256': hashlib.sha256(git_diff).hexdigest(),
+                'artifact': {
+                    'zip': str(zip_path),
+                    'zip_sha256': result['release_candidate_zip_sha256'],
+                    'jar_sha256': result['zip_extracted_jar_sha256']
+                },
+                'bundled_java_version': result['bundled_java_version'],
+                'platform': result['platform'],
+                'checks': {
+                    'zip_extracted_bundled_runtime_selftest': 543,
+                    'jiang_osf_comparisons': result.get('osf_jiang_subdesigns', {}).get('total_checks'),
+                    'original_distribution_hashes': len(hashes),
+                    'official_report_equal_except_date_and_newlines': True,
+                    'code_signature_verified_after_zip_extraction': True
+                },
+                'build_input_sha256': {
+                    str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in build_inputs
+                }
+            }
+            (RUN / 'release_candidate_manifest.json').write_text(
+                json.dumps(manifest, indent=2, ensure_ascii=False) + '\n')
 (RUN / 'results.json').write_text(json.dumps(result, indent=2, ensure_ascii=False) + '\n')
 print(json.dumps(result, indent=2, ensure_ascii=False))

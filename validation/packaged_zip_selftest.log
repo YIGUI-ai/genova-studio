@@ -1,0 +1,15 @@
+PASS: 543 checks; balanced GENOVA, urGENOVA manual A/C/D/E/F/G/H, mGENOVA manual B/C/D, independent ANOVA, import, validation, Excel, locale.
+CHECK CATEGORY: Balanced GENOVA reference and D-study visualization = 48
+CHECK CATEGORY: Tabular import = 5
+CHECK CATEGORY: Balanced GENOVA independent and robustness checks = 12
+CHECK CATEGORY: urGENOVA one-way pilot = 11
+CHECK CATEGORY: urGENOVA two-way pilot (manual D/E) = 46
+CHECK CATEGORY: urGENOVA nested-cross pilot (manual A) = 50
+CHECK CATEGORY: urGENOVA crossed missing-cell pilot (manual F) = 24
+CHECK CATEGORY: urGENOVA nested missing-cell pilot (manual G) = 32
+CHECK CATEGORY: urGENOVA matrix-sampling pilot (manual H) = 27
+CHECK CATEGORY: mGENOVA P x I pilot (manual B/D) = 79
+CHECK CATEGORY: mGENOVA P x (I:R) pilot (manual C/D) = 67
+CHECK CATEGORY: Published CiviConnections EPM component oracle = 51
+CHECK CATEGORY: Gleser Cronbach Rajaratnam 1965 Table 3 = 76
+CHECK CATEGORY: Excel import and typed exports = 15

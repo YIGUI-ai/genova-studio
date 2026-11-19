@@ -1,0 +1,66 @@
+digraph GenovaStudioArchitecture {
+  graph [
+    rankdir=TB, bgcolor="white", pad="0.22",
+    nodesep="0.40", ranksep="0.55",
+    fontname="Helvetica", fontsize=16,
+    labelloc="t",
+    label="GENOVA Studio: one workflow, three analysis pathways"
+  ];
+  node [
+    shape=box, style="rounded,filled", color="#3B4652", penwidth=1.3,
+    fontname="Helvetica", fontsize=13, margin="0.18,0.11"
+  ];
+  edge [color="#53606D", penwidth=1.2, arrowsize=0.75];
+
+  input   [label="Tabular import", fillcolor="#E8F1F8"];
+  mapping [label="Visual design spec", fillcolor="#E8F1F8"];
+  selector[label="Pathway selector", fillcolor="#DDEBF2", penwidth=1.6];
+  input -> mapping -> selector;
+
+  subgraph cluster_balanced {
+    label="GENOVA · balanced univariate"; color="#3B82A0"; penwidth=1.5;
+    style="rounded"; fontname="Helvetica-Bold"; fontsize=13;
+    bvalid  [label="Balanced validator", fillcolor="#E5F3F7"];
+    adapter [label="jGENOVA adapter", fillcolor="#E5F3F7"];
+    jgenova [label="Original jGENOVA core", fillcolor="#CDE9F1", penwidth=1.8];
+    bvalid -> adapter -> jgenova;
+  }
+  // declared third so Graphviz's last-two swap lands it in the MIDDLE
+  subgraph cluster_multi {
+    label="mGENOVA · multivariate G/D"; color="#6F5A96"; penwidth=1.5;
+    style="rounded"; fontname="Helvetica-Bold"; fontsize=13;
+    mvalid [label="Multivariate validators", fillcolor="#EEE8F6"];
+    mgen   [label="Two multivariate engines", fillcolor="#DDD0EE", penwidth=1.8];
+    mvalid -> mgen;
+  }
+  // declared second so the swap lands it on the RIGHT
+  subgraph cluster_unbalanced {
+    label="urGENOVA · unbalanced G-study"; color="#C58222"; penwidth=1.5;
+    style="rounded"; fontname="Helvetica-Bold"; fontsize=13;
+    uvalid [label="Design validators", fillcolor="#FFF2DC"];
+    ur     [label="Six unbalanced engines", fillcolor="#F9DCA9", penwidth=1.8];
+    uvalid -> ur;
+  }
+
+  selector -> bvalid [color="#3B82A0"];
+  selector -> mvalid [color="#6F5A96"];
+  selector -> uvalid [color="#C58222"];
+
+  parse  [label="Typed results", fillcolor="#E9EEF2"];
+  tabs   [label="Result workspace", fillcolor="#E9EEF2"];
+  visual [label="D-study heatmap / 3D", fillcolor="#E3F0E8"];
+  export [label="Exports", fillcolor="#E3F0E8"];
+
+  jgenova -> parse [color="#3B82A0"];
+  mgen    -> parse [color="#6F5A96"];
+  ur      -> parse [color="#C58222"];
+  parse -> tabs;
+  tabs  -> visual [label="balanced only", fontname="Helvetica", fontsize=10];
+  tabs  -> export;
+  visual-> export;
+
+  qc [label="Verification boundary", fillcolor="#F2F2F2", style="rounded,dashed,filled"];
+  qc -> bvalid [style=dashed, arrowhead=none];
+  qc -> uvalid [style=dashed, arrowhead=none];
+  qc -> mvalid [style=dashed, arrowhead=none];
+}
