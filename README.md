@@ -16,4 +16,8 @@ The **D-study heatmap** tab is available after a balanced GENOVA D-study with ex
 
 The **3D plot** tab uses the same calculated grid. Choose Phi or G coefficient for height and color, drag the plot or use the rotate/tilt sliders, inspect exact values at computed points, and export a 1600×1000 PNG. The surface between points is bilinear visual interpolation; no additional statistical scenarios are inferred. Height follows the coefficient axis, while the color bar spans the displayed grid values. A preview PNG for the official nested example is in `dist/20261009-103626/dstudy_surface_phi.png`.
 
+## Licensing and third-party code
+
+Original GENOVA Studio code and materials are available under the BSD 3-Clause License in `LICENSE.txt`. That license does **not** apply to `third_party/jGENOVA1.0/`. The balanced core in that directory is the unchanged jGENOVA source developed by Joe E. Crick and Robert L. Brennan. Their project website publicly provides the application and source archive and states that the programs may be distributed freely to others. GENOVA Studio credits that component, preserves it unchanged, and does not assign it a new license. See `THIRD_PARTY_NOTICES.md` for the source URLs, archive hash, attribution, scope, and no-endorsement statement.
+
 `build/latest.json` identifies the latest JAR and app. Intermediate builds remain in `build/` and `dist/`; original materials are outside those folders. Follow the five-hour usage rule in the root `AGENTS.md` during future development.

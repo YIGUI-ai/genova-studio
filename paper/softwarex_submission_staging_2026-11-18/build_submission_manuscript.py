@@ -79,13 +79,14 @@ for line in lines:
         q=p(line)
         if line.startswith('[') and re.match(r'^\[\d+\]',line):
             q.paragraph_format.space_after=Pt(0)
-            for run in q.runs:run.font.size=Pt(9)
+            q.paragraph_format.line_spacing=1.0
+            for run in q.runs:run.font.size=Pt(8.5)
 
 meta=d.tables[0]
 values={
- 'C1':'Release version pending; current manuscript describes the validated 18 November 2026 development snapshot.',
+ 'C1':'Version 1.0.0 local submission candidate; public release and DOI pending.',
  'C2':'https://github.com/YIGUI-ai/genova-studio (currently private; public versioned link required before submission).',
- 'C3':'To be completed after the jGENOVA source-rights and new-code license decision; no repository-wide license is assigned yet.',
+ 'C3':'BSD-3-Clause for original GENOVA Studio code and materials. The unchanged jGENOVA core is excluded and documented separately in THIRD_PARTY_NOTICES.md under the authors’ published redistribution statement.',
  'C4':'Git',
  'C5':'Java; Python build and validation scripts; Swing GUI; Graphviz for architecture figure.',
  'C6':'Apple Silicon (arm64) macOS 27.2.1; packaged as a jpackage app-image with a bundled OpenJDK 25.0.2 runtime. Environment reflects the hash-frozen submission candidate; confirm against the final tagged release.',

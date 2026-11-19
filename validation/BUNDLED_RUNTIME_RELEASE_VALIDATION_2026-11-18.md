@@ -6,6 +6,8 @@
 
 The candidate is frozen by artifact hashes for manuscript preparation. It is **not** yet a tagged public release: the source worktree was dirty at validation time, the repository remains private, and release licensing/rights decisions remain open.
 
+Post-validation release preparation on 18 November 2026 committed and tagged the tested candidate locally, then staged a BSD-3-Clause license for original GENOVA Studio work and a separate jGENOVA notice based on the authors' published redistribution statement. This later administrative status does not alter the recorded validation-time Git state or any evidence boundary below.
+
 ## Frozen candidate
 
 - ZIP: `dist/20261118-214156/GENOVA Studio.zip`
@@ -46,4 +48,4 @@ The matching JAR hashes establish that the test executed the same application by
 
 ## Reproducibility note
 
-The hash-frozen ZIP is adequate as the manuscript's current tested candidate. Before public release, commit or otherwise archive the intended source state, resolve license and third-party-rights requirements, tag the exact release, rebuild it, and rerun this procedure so the public release can be tied to an immutable source revision as well as artifact hashes.
+The hash-frozen ZIP is adequate as the manuscript's current tested candidate. Before public release, review and commit the staged license and third-party notice, recreate the still-local tag on the intended release commit, and rerun this procedure if code or packaging changes so the public release can be tied to an immutable source revision as well as artifact hashes.

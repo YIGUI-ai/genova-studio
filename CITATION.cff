@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite GENOVA Studio using the metadata below after the author and release fields have been finalized."
+title: "GENOVA Studio"
+version: 1.0.0
+type: software
+authors:
+  - name: "PLACEHOLDER — authors to be filled before public release"
+license: BSD-3-Clause
+repository-code: "https://github.com/YIGUI-ai/genova-studio"
+# doi: TODO — add the Zenodo version DOI only after it has actually been minted.
+abstract: >-
+  GENOVA Studio is a native Apple Silicon macOS interface for supported
+  generalizability-theory workflows. Its balanced pathway incorporates the
+  jGENOVA statistical core developed by Joe E. Crick and Robert L. Brennan;
+  that contribution is credited here without assigning the jGENOVA code a new
+  license. The BSD 3-Clause license applies only to original GENOVA Studio
+  code and materials; the unchanged jGENOVA component is excluded and is
+  documented separately in THIRD_PARTY_NOTICES.md. GENOVA Studio also contains
+  separately implemented, bounded unbalanced and multivariate pilot pathways.

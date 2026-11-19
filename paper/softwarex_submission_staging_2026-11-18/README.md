@@ -6,11 +6,11 @@ Prepared 18 November 2026. This is a **local working package**, not a submission
 
 | Item | Local file or source | Status |
 | --- | --- | --- |
-| Manuscript | `manuscript/GENOVA_Studio_SoftwareX_OSP_template_draft.docx` | Condensed five-section article in official template; author identity, release metadata, and license remain pending. |
+| Manuscript | `manuscript/GENOVA_Studio_SoftwareX_OSP_template_draft.docx` | Condensed five-section article in official template; author identity, public release metadata, and DOI remain pending. The multi-component license description is populated for review. |
 | Figures | `figures/` | Three existing figures staged; verify final captions, resolution, and journal format. |
 | Reproducibility example | `../reproducibility_case/` | Existing case package and tutorial; review content and redistribution rights before submission. |
-| Validation evidence | `../../validation/results.json`, `../../validation/EXTERNAL_DATA_VALIDATION_PROGRESS_2026-11-18.md` | 543 self-test checks and separate 28 OSF comparisons are recorded; repeat on frozen release. |
-| Source code and build | `../../src/`, `../../build.py`, `../../validate.py` | Local development version; working tree has uncommitted changes and is not a frozen release. |
+| Validation evidence | `../../validation/results.json`, `../../validation/EXTERNAL_DATA_VALIDATION_PROGRESS_2026-11-18.md` | Frozen candidate passed 543 checks in the ZIP-extracted bundled runtime; 28 OSF comparisons remain separate. Repeat if final code or packaging changes. |
+| Source code and build | `../../src/`, `../../build.py`, `../../validate.py` | Validated candidate committed and tagged locally as `v1.0.0`; license and release-metadata revisions remain staged for human review. |
 | Submission gap matrix | `REQUIREMENTS_AND_GAPS.md` | Working comparison against publisher material and project evidence. |
 
 ## Authoritative publisher entry points
@@ -24,7 +24,7 @@ The live guide was read through the in-app browser on 18 November 2026, and the 
 ## Next preparation sequence
 
 1. Review the current official-template draft and the live-guide comparison in `REQUIREMENTS_AND_GAPS.md`.
-2. Resolve jGENOVA source rights and separate licenses/notices for original, new, and third-party code. Audit which external data and scans may be redistributed.
+2. Review `LICENSE.txt` and `THIRD_PARTY_NOTICES.md`: BSD-3-Clause covers original GENOVA Studio work only; unchanged jGENOVA is excluded and documented under the authors' published redistribution statement. Continue excluding external article PDFs, the OSF archive, and the user-supplied scan.
 3. Confirm authors, affiliations, corresponding author, contributions, funding, conflicts, and any required AI-use disclosure with the author team.
 4. Complete the release-dependent metadata in the already-condensed official-template article and keep detailed validation evidence in the repository/supplement.
 5. Freeze a source release, rerun all validation with its bundled runtime, and record version, commit, hashes, supported macOS environment, and a stable software citation/identifier.
