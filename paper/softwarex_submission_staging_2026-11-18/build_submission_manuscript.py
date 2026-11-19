@@ -84,13 +84,13 @@ for line in lines:
 
 meta=d.tables[0]
 values={
- 'C1':'Version 1.0.0 local submission candidate; public release and DOI pending.',
- 'C2':'https://github.com/YIGUI-ai/genova-studio (currently private; public versioned link required before submission).',
+ 'C1':'Version 1.0.0; version DOI: https://doi.org/10.5281/zenodo.24358906.',
+ 'C2':'https://github.com/YIGUI-ai/genova-studio (public source repository); archived version: https://doi.org/10.5281/zenodo.24358906.',
  'C3':'BSD-3-Clause for original GENOVA Studio code and materials. The unchanged jGENOVA core is excluded and documented separately in THIRD_PARTY_NOTICES.md under the authors’ published redistribution statement.',
  'C4':'Git',
  'C5':'Java; Python build and validation scripts; Swing GUI; Graphviz for architecture figure.',
  'C6':'Apple Silicon (arm64) macOS 27.2.1; packaged as a jpackage app-image with a bundled OpenJDK 25.0.2 runtime. Environment reflects the hash-frozen submission candidate; confirm against the final tagged release.',
- 'C7':'https://github.com/YIGUI-ai/genova-studio (README and user documentation to accompany public release).',
+ 'C7':'https://github.com/YIGUI-ai/genova-studio#readme (public README and user documentation).',
  'C8':'Corresponding-author support email to be supplied.'}
 for row in meta.rows[1:]:
     key=row.cells[0].text.strip()

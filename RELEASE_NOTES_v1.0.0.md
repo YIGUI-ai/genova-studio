@@ -1,6 +1,6 @@
-# GENOVA Studio 1.0.0 — draft release notes
+# GENOVA Studio 1.0.0 release notes
 
-**Review status:** local SoftwareX submission candidate only. These notes have not been published. Repository visibility, final author metadata, public release, archival deposit, and DOI are still human-gated.
+**Release status:** published from GitHub tag `v1.0.0` and archived on Zenodo. Version DOI: `10.5281/zenodo.24358906`.
 
 ## Candidate artifact
 
@@ -49,8 +49,8 @@ Local tag `v1.0.0` identifies the committed submission-candidate source. Rebuild
 
 ## Boundaries and claims not made
 
-- No DOI has been minted or claimed.
-- The GitHub repository remains private; this is not a public GitHub or Zenodo release.
+- Version DOI: `10.5281/zenodo.24358906`; concept DOI: `10.5281/zenodo.24358905`.
+- The GitHub repository and versioned Zenodo archive are public.
 - Original GENOVA Studio code and materials use the BSD 3-Clause License. That license excludes the unchanged jGENOVA core. The authors' website publicly supplies the source and states that the programs may be distributed freely; `THIRD_PARTY_NOTICES.md` records that redistribution basis. No new license is assigned to jGENOVA.
 - The 543 count is a conventional assertion count, not 543 independent validation studies. Jiang's 28 comparisons remain separate.
 - The Gleser case is one balanced univariate raw-data-to-result case. It does not validate the unbalanced or multivariate pilots.

@@ -7,7 +7,7 @@ authors:
   - name: "PLACEHOLDER — authors to be filled before public release"
 license: BSD-3-Clause
 repository-code: "https://github.com/YIGUI-ai/genova-studio"
-# doi: TODO — add the Zenodo version DOI only after it has actually been minted.
+doi: "10.5281/zenodo.24358906"
 abstract: >-
   GENOVA Studio is a native Apple Silicon macOS interface for supported
   generalizability-theory workflows. Its balanced pathway incorporates the
