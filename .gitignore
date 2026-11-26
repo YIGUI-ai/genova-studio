@@ -25,6 +25,10 @@ paper/reproducibility_case/source/node_modules
 validation/external_sources/**/*.pdf
 validation/external_sources/**/.DS_Store
 !validation/external_sources/**/SOURCE_MANIFEST.md
+# Dr. Vespa supplied these files for validation. Redistribution permission is
+# not documented, so keep the raw data, codebook, and supplement outside Git.
+validation/external_sources/vispoel_bfi2_2023/*
+!validation/external_sources/vispoel_bfi2_2023/SOURCE_MANIFEST.md
 wud3x-osfstorage-archive/
 gleser1965.pdf
 

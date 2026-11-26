@@ -1,0 +1,392 @@
+{
+  "checks": [
+    {
+      "actual": 4152,
+      "expected": 4152,
+      "label": "temporary long-format observations",
+      "passed": true
+    },
+    {
+      "actual": 346,
+      "expected": 346,
+      "label": "persons",
+      "passed": true
+    },
+    {
+      "actual": 3,
+      "expected": 3,
+      "label": "fixed variables",
+      "passed": true
+    },
+    {
+      "actual": 0.571813130043842,
+      "expected": 0.5718131300438415,
+      "label": "Assertiveness p matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.571813130043842,
+      "expected": 0.572,
+      "label": "Assertiveness p matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.0371855016615008,
+      "expected": 0.037185501661500836,
+      "label": "Assertiveness i matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.0371855016615008,
+      "expected": 0.037,
+      "label": "Assertiveness i matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.693546675602468,
+      "expected": 0.6935466756024683,
+      "label": "Assertiveness pi matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.693546675602468,
+      "expected": 0.694,
+      "label": "Assertiveness pi matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.571813130043842,
+      "expected": 0.5718131300438415,
+      "label": "Assertiveness D-study universe matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.173386668900617,
+      "expected": 0.17338666890061707,
+      "label": "Assertiveness D-study relative matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.182683044315992,
+      "expected": 0.18268304431599228,
+      "label": "Assertiveness D-study absolute matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.767328615565636,
+      "expected": 0.7673286155656358,
+      "label": "Assertiveness D-study g matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.75787412776348,
+      "expected": 0.75787412776348,
+      "label": "Assertiveness D-study phi matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.411481109156403,
+      "expected": 0.41148110915640324,
+      "label": "Energy Level p matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.411481109156403,
+      "expected": 0.411,
+      "label": "Energy Level p matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.0996188322023951,
+      "expected": 0.09961883220239509,
+      "label": "Energy Level i matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.0996188322023951,
+      "expected": 0.1,
+      "label": "Energy Level i matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.796816620591439,
+      "expected": 0.7968166205914392,
+      "label": "Energy Level pi matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.796816620591439,
+      "expected": 0.797,
+      "label": "Energy Level pi matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.411481109156403,
+      "expected": 0.41148110915640324,
+      "label": "Energy Level D-study universe matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.19920415514786,
+      "expected": 0.1992041551478598,
+      "label": "Energy Level D-study relative matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.224108863198459,
+      "expected": 0.22410886319845857,
+      "label": "Energy Level D-study absolute matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.673802256593161,
+      "expected": 0.6738022565931607,
+      "label": "Energy Level D-study g matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.64740025339271,
+      "expected": 0.6474002533927102,
+      "label": "Energy Level D-study phi matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.808440144089806,
+      "expected": 0.8084401440898057,
+      "label": "Sociability p matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.808440144089806,
+      "expected": 0.808,
+      "label": "Sociability p matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.217898131858928,
+      "expected": 0.217898131858928,
+      "label": "Sociability i matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.217898131858928,
+      "expected": 0.218,
+      "label": "Sociability i matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.823768534807739,
+      "expected": 0.8237685348077387,
+      "label": "Sociability pi matches independent ANOVA",
+      "passed": true
+    },
+    {
+      "actual": 0.823768534807739,
+      "expected": 0.824,
+      "label": "Sociability pi matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.808440144089806,
+      "expected": 0.8084401440898057,
+      "label": "Sociability D-study universe matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.205942133701935,
+      "expected": 0.20594213370193468,
+      "label": "Sociability D-study relative matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.260416666666667,
+      "expected": 0.2604166666666667,
+      "label": "Sociability D-study absolute matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.796977788146831,
+      "expected": 0.7969777881468312,
+      "label": "Sociability D-study g matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.756359632042425,
+      "expected": 0.7563596320424253,
+      "label": "Sociability D-study phi matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.288986973276368,
+      "expected": 0.2889869732763676,
+      "label": "Assertiveness x Energy Level covariance matches independent calculation",
+      "passed": true
+    },
+    {
+      "actual": 0.288986973276368,
+      "expected": 0.289,
+      "label": "Assertiveness x Energy Level covariance matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.502596967412247,
+      "expected": 0.5025969674122477,
+      "label": "Assertiveness x Sociability covariance matches independent calculation",
+      "passed": true
+    },
+    {
+      "actual": 0.502596967412247,
+      "expected": 0.503,
+      "label": "Assertiveness x Sociability covariance matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.414155566725308,
+      "expected": 0.4141555667253079,
+      "label": "Energy Level x Sociability covariance matches independent calculation",
+      "passed": true
+    },
+    {
+      "actual": 0.414155566725308,
+      "expected": 0.414,
+      "label": "Energy Level x Sociability covariance matches published rounding",
+      "passed": true
+    },
+    {
+      "actual": 0.467023710901988,
+      "expected": 0.46702371090198846,
+      "label": "Composite D-study universe matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.0642814397500457,
+      "expected": 0.06428143975004572,
+      "label": "Composite D-study relative matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.0741342860201242,
+      "expected": 0.07413428602012416,
+      "label": "Composite D-study absolute matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.879012202928661,
+      "expected": 0.8790122029286606,
+      "label": "Composite D-study g matches independent formula",
+      "passed": true
+    },
+    {
+      "actual": 0.863008055980379,
+      "expected": 0.8630080559803792,
+      "label": "Composite D-study phi matches independent formula",
+      "passed": true
+    }
+  ],
+  "checks_passed": 47,
+  "checks_total": 47,
+  "evidence_boundary": "One-occasion BFI-2 P x I case only. This does not validate P x I x O, P x (I:R), missing cells, other estimators, or unrestricted mGENOVA parity.",
+  "jar_sha256": "073cc4fa7a77cb0fdee718bfc07c9004a86a3d93f14683edff054980598ecf87",
+  "java_results": {
+    "composite": {
+      "absolute": 0.0741342860201242,
+      "g": 0.879012202928661,
+      "phi": 0.863008055980379,
+      "relative": 0.0642814397500457,
+      "universe": 0.467023710901988
+    },
+    "cov": {
+      "Assertiveness x Energy Level": 0.288986973276368,
+      "Assertiveness x Sociability": 0.502596967412247,
+      "Energy Level x Sociability": 0.414155566725308
+    },
+    "d": {
+      "Assertiveness": {
+        "absolute": 0.182683044315992,
+        "g": 0.767328615565636,
+        "phi": 0.75787412776348,
+        "relative": 0.173386668900617,
+        "universe": 0.571813130043842
+      },
+      "Energy Level": {
+        "absolute": 0.224108863198459,
+        "g": 0.673802256593161,
+        "phi": 0.64740025339271,
+        "relative": 0.19920415514786,
+        "universe": 0.411481109156403
+      },
+      "Sociability": {
+        "absolute": 0.260416666666667,
+        "g": 0.796977788146831,
+        "phi": 0.756359632042425,
+        "relative": 0.205942133701935,
+        "universe": 0.808440144089806
+      }
+    },
+    "meta": [
+      4152,
+      346,
+      3
+    ],
+    "vc": {
+      "Assertiveness": {
+        "i": 0.0371855016615008,
+        "p": 0.571813130043842,
+        "pi": 0.693546675602468
+      },
+      "Energy Level": {
+        "i": 0.0996188322023951,
+        "p": 0.411481109156403,
+        "pi": 0.796816620591439
+      },
+      "Sociability": {
+        "i": 0.217898131858928,
+        "p": 0.808440144089806,
+        "pi": 0.823768534807739
+      }
+    }
+  },
+  "reported_lavaan_uls_coefficients_context_only": {
+    "note": "These rounded ULS estimates are not treated as exact mGENOVA targets. For example, the supplement reports Assertiveness Phi as 0.757, while the exact ANOVA components give 0.757874 (0.758 to three decimals).",
+    "values": {
+      "Assertiveness": {
+        "g": 0.767,
+        "phi": 0.757
+      },
+      "Composite": {
+        "g": 0.879,
+        "phi": 0.863
+      },
+      "Energy Level": {
+        "g": 0.674,
+        "phi": 0.647
+      },
+      "Sociability": {
+        "g": 0.797,
+        "phi": 0.756
+      }
+    }
+  },
+  "source_files": {
+    "BFI-2 Extraversion Dataset.csv": "50aba10ebecd0c41db5730311b787f78943a7326f5cc2dbf43ed4c941365ce8d",
+    "Extraversion_Codebook.xlsx": "bc31047ad11039efa7e253163e7d418d787083f1873809f48da4e73d402dcc17",
+    "Instructional Online Supplement to Vispoel et al. (2023) Applying Multivariate G-theory to Psychological Assessments Rechecked 07232026.docx": "58aec0b4aba5d8a959341ce8ddf7a96345af13c41680d36181ac14f92e3f5470"
+  },
+  "source_structure": {
+    "items_per_subscale": 4,
+    "missing_values": 0,
+    "occasions": 2,
+    "persons": 346,
+    "subscales": 3,
+    "wide_columns": 24
+  },
+  "status": "PASS",
+  "tested_structure": {
+    "design": "P x I",
+    "fixed_variables": 3,
+    "items_per_variable": 4,
+    "observations": 4152,
+    "occasion": "T1",
+    "persons": 346
+  }
+}

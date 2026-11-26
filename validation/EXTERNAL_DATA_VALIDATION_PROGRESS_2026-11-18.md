@@ -1,6 +1,6 @@
-# 外部数据验证进度（截至 2026-11-18）
+# 外部数据验证进度（更新至 2026-11-26）
 
-目的：为 GENOVA Studio 的 GENOVA、urGENOVA 与 mGENOVA 功能建立可追溯的独立验证材料。本页记录 CiviConnections 论文、Jiang et al. OSF 数据和 Gleser et al. 1965 表格的实际进展，以及尚未完成的复现工作。每项结论仅适用于已经测试的设计、输入和计算步骤。
+目的：为 GENOVA Studio 的 GENOVA、urGENOVA 与 mGENOVA 功能建立可追溯的独立验证材料。本页记录 CiviConnections 论文、Jiang et al. OSF 数据、Gleser et al. 1965 表格和 Dr. John Vespa 提供的 BFI-2 数据的实际进展，以及尚未完成的复现工作。每项结论仅适用于已经测试的设计、输入和计算步骤。
 
 ## 1. CiviConnections：已发表数值基准
 
@@ -37,7 +37,29 @@
 
 **原文内部差异：**论文把 item 方差分量印为 0.471，但按论文 Eq. 17 和 Table 3 的均方应为约 0.46717，Studio 得到后者。测试将推导值作为该项期望值，并在 `validation/gleser1965/README.md` 保存算式、来源哈希及验证边界。此例为**平衡单变量**设计，不能代替 urGENOVA 的 unbalanced 或 mGENOVA 的 multivariate 端到端验证。
 
-## 4. QCIT / Q-CCIIT：官方页面与数据获取结论
+## 4. Vispoel et al. BFI-2：mGENOVA P × I 端到端外部验证
+
+Dr. John Vespa 于 2026-11-26 提供了 346 人的 BFI-2 Extraversion 数据、变量代码本，以及 Vispoel et al. (2023) *Applying Multivariate Generalizability Theory to Psychological Assessments* 的教学补充材料。数据有 24 个完整题目反应列：3 个分量表各 4 题，在两个 occasions 分别测量；无缺失，所有值均为 1–5。原文件保留在仓库外，只读使用。`validation/external_sources/vispoel_bfi2_2023/SOURCE_MANIFEST.md` 记录三个文件的 SHA-256；因尚未在此记录原始文件的再分发书面许可，仓库不包含 raw CSV、codebook 或 supplement。
+
+已完成 Occasion 1 的 `P × I` 验证：346 persons × 3 fixed variables × 4 items = 4,152 observations，低于当前 mGENOVA pilot 的 5,000-observation 限制。验证脚本将 wide 数据仅在临时目录转换为 Studio 所需的四列长表，并调用生产版 `MpXiDesign` 和 `MpXiEngine`。同时用独立双因素 ANOVA 公式重新计算各分量表的 person、item、person × item 分量及 person 间协方差。
+
+结果为 **47/47 PASS**：Studio 与独立计算在全精度下相符；以下 G-study 结果也与补充材料的 mGENOVA 表格在其三位小数精度下相符。
+
+同一套 47 项随后用冻结 `v1.0.0` ZIP 解压出的 application JAR 和 bundled OpenJDK 25.0.2 直接执行，再次 **47/47 PASS**。冻结 ZIP SHA-256 为 `71e931521e6555e45d97f88691f84c2304bca27d6406b74325f0c758e5cce8ce`，其中 JAR SHA-256 为 `9883b68ddcf9211d2957d09cf300bc231fc130142a648e0186ceefecb4e85c6f`。发布件结果保存在 `validation/vispoel_bfi2_2023/packaged_v1.0.0_results.json`。
+
+| 分量表 | person | item | person × item |
+| --- | ---: | ---: | ---: |
+| Assertiveness | 0.571813 | 0.037186 | 0.693547 |
+| Energy Level | 0.411481 | 0.099619 | 0.796817 |
+| Sociability | 0.808440 | 0.217898 | 0.823769 |
+
+person 协方差分别为 Assertiveness–Energy `0.288987`、Assertiveness–Sociability `0.502597`、Energy–Sociability `0.414156`，对应补充材料的 `0.289`、`0.503`、`0.414`。四题 D-study 也由精确分量独立复算并逐项通过，包括 composite `G = 0.879012`、`Phi = 0.863008`。
+
+补充材料后面的 lavaan ULS 表不是原始 mGENOVA 的精确 oracle，因而仅作上下文，不与 ANOVA 入口混为同一硬基准。例如该表将 Assertiveness Phi 报为 `0.757`，而精确 ANOVA 分量给出 `0.757874`，按三位小数为 `0.758`。验证记录保留此差异，不通过放宽容差掩盖它。
+
+**验证边界：**这项结果验证的是 Occasion 1、完整数据、3 个固定变量、每变量 4 个嵌套题目的 `P × I` raw-data-to-result 路径。它不验证两 occasion 的 `P × I × O`、Studio 的 `P × (I:R)`、missing cells、其他估计量，或与原 mGENOVA 可执行文件的无限制等价。完整两 occasion 数据有 8,304 个 observation，而且 `P × I × O` 当前未实现；不能把这 47 项通过表述为两面设计已经支持或验证。
+
+## 5. QCIT / Q-CCIIT：官方页面与数据获取结论
 
 QCIT（Quality of Care for Infants and Toddlers）是 Mathematica 的官方量表；旧名称为 Q-CCIIT（Quality of Caregiver-Child Interactions for Infants and Toddlers）。官方页面是 [Mathematica QCIT](https://www.mathematica.org/solutions/qcit)。页面提供 Fact Sheet、Introduction、FAQ、Pricing 和 publications 等材料；评分表、用户指南和培训材料通过 QCIT Store 提供，属于量表使用资料，不是研究原始 dataset。
 
@@ -53,14 +75,15 @@ Baby FACES 2018 的 QCIT/Q-CCIIT 变量由 [ICPSR 37666](https://www.childandfam
 
 数据请求对象应先联系 **QCIT@mathematica-mpr.com**，请求匿名 observation-level field-test data、codebook，以及如仍保存的 urGENOVA input/output 或分析说明；若 Mathematica 不再保管，应请其转介 ACF/OPRE 或数据档案管理员。请求邮件草稿已在本对话中准备，尚未发送。
 
-## 5. 待做的复现与验证
+## 6. 待做的复现与验证
 
 1. **Jiang 原论文模型复现。** 先核对 OSF Stan/R 文件的依赖、版本、路径、参数化、先验及运行配置；再在隔离工作目录运行论文的 joint mixed-format 模型，对照论文 Table 4 的 posterior means、SD 和区间。当前归档中的 `runstan.R` 引用未随包出现的 `mergecodebymanual1025.stan`，`generate_stan_data.R` 引用未在该脚本定义的 `scoreDataCode_new` / `outcomeDataCode_new`；需先查明是否有遗漏的版本或必要的手工改名步骤。不要未经核对就替换原文件或把某个 Stan 版本视为论文最终版本。
 2. **GENOVA Studio 完整设计支持。** 若决定实现 `P × [I_MCQ ∪ (R:I)_FRT]`，需先明确 Bayesian 二元 MCQ 模型与经典 mGENOVA 估计的目标量，再设计适配器、统计引擎和独立比较。不同估计方法的数值不应被要求逐位相等。
 3. **CiviConnections 端到端复现。** 若取得获准分享的匿名逐行数据及 urGENOVA input/output，固定数据版本、设计映射和各阶段期望结果，再比较导入、ANOVA、components、D-study 和最终报告。现有公开论文数值仍可作为下游计算基准。
 4. **扩大 OSF 子设计覆盖。** 可在现有独立计算脚本基础上检查 FRT 的其余 task、更多 MCQ 子表及完整平衡 FRT 的 `P × (R:I)` 结构；每项新增测试都需先确认其设计与程序入口一致。
+5. **Vispoel 两面设计。** 若决定扩展 mGENOVA，应把 `P × I × O` 作为新的明确设计实现和验证，不要把 Occasion 2 简单拼入现有 `P × I`。需先确定 crossed/nested facet 语义、协方差结构、D-study 目标和 observation-limit 策略，再以补充材料第 2.2 节的 components 为外部基准。
 
-## 6. 复跑方式与证据
+## 7. 复跑方式与证据
 
 从 `/Users/yigui/Documents/GGG` 执行：
 
@@ -75,4 +98,12 @@ python3 genova-gui/validate.py
 python3 genova-gui/validation/osf_jiang_2024/validate_subdesigns.py
 ```
 
-`validate.py` 在项目根目录存在 `wud3x-osfstorage-archive/` 时运行 OSF 检查。最近一次结果：543 项常规自测在开发 JDK、打包目录的 bundled runtime，以及冻结候选 ZIP 解压出的 bundled runtime 上均全部通过（含 Gleser 76 项与 CiviConnections 51 项）；Jiang 子设计另有 28 项通过；原发行包的 95 个原件哈希检查通过。候选 ZIP SHA-256 为 `71e931521e6555e45d97f88691f84c2304bca27d6406b74325f0c758e5cce8ce`，其中 JAR SHA-256 为 `9883b68ddcf9211d2957d09cf300bc231fc130142a648e0186ceefecb4e85c6f`。运行平台为 Apple Silicon macOS 27.2.1，bundled OpenJDK 25.0.2。完整记录见 `validation/BUNDLED_RUNTIME_RELEASE_VALIDATION_2026-11-18.md` 和 `validation/release_candidate_manifest.json`；`validation/osf_jiang_2024/README.md` 与 `validation/gleser1965/README.md` 记录具体数据和测试解释。此进度文件记录的是上述已执行结果，不代表未来代码或数据版本自动保持相同结论。
+只运行 Vispoel BFI-2 Occasion 1 `P × I` 外部验证：
+
+```sh
+python3 genova-gui/validation/vispoel_bfi2_2023/validate_bfi2_pxi.py \
+  "/path/to/RE__[External]_Data_Request_for_Validating_mGENOVA_in_GENOVA_Studio" \
+  --output genova-gui/validation/vispoel_bfi2_2023/results.json
+```
+
+`validate.py` 在项目根目录存在 `wud3x-osfstorage-archive/` 时运行 OSF 检查。冻结投稿候选的结果仍为：543 项常规自测在开发 JDK、打包目录的 bundled runtime，以及冻结候选 ZIP 解压出的 bundled runtime 上均全部通过（含 Gleser 76 项与 CiviConnections 51 项）；Jiang 子设计另有 28 项通过；原发行包的 95 个原件哈希检查通过。候选 ZIP SHA-256 为 `71e931521e6555e45d97f88691f84c2304bca27d6406b74325f0c758e5cce8ce`，其中 JAR SHA-256 为 `9883b68ddcf9211d2957d09cf300bc231fc130142a648e0186ceefecb4e85c6f`。运行平台为 Apple Silicon macOS 27.2.1，bundled OpenJDK 25.0.2。2026-11-26 新增的 Vispoel BFI-2 `P × I` 外部验证在当前开发 JAR 和冻结 ZIP 的 bundled runtime/JAR 上均为 47/47 PASS；该重跑不改变冻结 artifact 的字节或既有证据边界。完整记录见 `validation/BUNDLED_RUNTIME_RELEASE_VALIDATION_2026-11-18.md`、`validation/release_candidate_manifest.json`、`validation/vispoel_bfi2_2023/results.json` 和 `validation/vispoel_bfi2_2023/packaged_v1.0.0_results.json`；各验证目录的 README 记录具体数据和测试解释。此进度文件记录的是上述已执行结果，不代表未来代码或数据版本自动保持相同结论。

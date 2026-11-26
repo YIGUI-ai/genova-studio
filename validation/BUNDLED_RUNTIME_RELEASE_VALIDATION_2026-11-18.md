@@ -8,6 +8,12 @@ The candidate is frozen by artifact hashes for manuscript preparation. It is **n
 
 Post-validation release preparation on 18 November 2026 committed and tagged the tested candidate locally, then staged a BSD-3-Clause license for original GENOVA Studio work and a separate jGENOVA notice based on the authors' published redistribution statement. This later administrative status does not alter the recorded validation-time Git state or any evidence boundary below.
 
+## External-data addendum — 26 November 2026
+
+The same frozen ZIP was extracted again without modification for the Vispoel et al. BFI-2 external validation. Its ZIP and application JAR hashes matched the values below. The extracted bundled OpenJDK 25.0.2 runtime executed the 47-check `P × I` validation against 4,152 Occasion 1 observations; all 47 checks passed. They compare the production mGENOVA `P × I` Java pathway with independent ANOVA and D-study calculations and the supplement's published mGENOVA components at reported precision.
+
+This addendum validates one complete, one-occasion `P × I` case only. It does not add the validation script to the already frozen ZIP, change the release artifact, or extend support to `P × I × O`, `P × (I:R)`, missing cells, other estimators, or unrestricted original-mGENOVA parity. Machine-readable results are in `validation/vispoel_bfi2_2023/packaged_v1.0.0_results.json`.
+
 ## Frozen candidate
 
 - ZIP: `dist/20261118-214156/GENOVA Studio.zip`
@@ -36,6 +42,7 @@ The matching JAR hashes establish that the test executed the same application by
 | Original downloaded-distribution hashes | 95/95 unchanged | Confirms retained originals were not modified |
 | Official balanced full report | Pass | Equal after normalizing run date and newline style |
 | Jiang OSF subdesign comparisons | 28/28 pass | Separate external-data script in the same validation session; not part of the 543 bundled-runtime count |
+| Vispoel BFI-2 `P × I` external validation | 47/47 pass | Separate 26 November addendum; one complete Occasion 1 case, not part of the 543 count |
 
 ## Evidence files
 
@@ -45,6 +52,7 @@ The matching JAR hashes establish that the test executed the same application by
 - `validation/packaged_selftest.log` — full 543-check output from the bundled runtime in the packaged app directory.
 - `validation/selftest.log` — corresponding development-JDK run.
 - `validation/osf_jiang_subdesigns.log` — 28 separate Jiang subdesign comparisons.
+- `validation/vispoel_bfi2_2023/packaged_v1.0.0_results.json` — 47 external-data checks run by the ZIP-extracted bundled runtime against the frozen JAR.
 
 ## Reproducibility note
 

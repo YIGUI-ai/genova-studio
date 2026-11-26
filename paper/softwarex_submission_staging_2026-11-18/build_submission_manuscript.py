@@ -5,6 +5,8 @@ from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
 
 ROOT = Path(__file__).resolve().parent
 TEMPLATE = ROOT / 'softwarex-osp-template-v6-2026-03.docx'
@@ -54,12 +56,20 @@ for line in lines:
         rows=[
           ('Gleser et al. Table 3; 144 raw scores','Balanced P × I × J ANOVA, components, two G coefficients','One balanced univariate case'),
           ('CiviConnections published components','Multivariate/univariate D-study quantities; 51 assertions','No public row-level data or source ANOVA'),
-          ('Jiang OSF; two complete subdesigns','Independent ANOVA, components, D-study; 28 comparisons','Not the joint Bayesian model or full mGENOVA design')
+          ('Jiang OSF; two complete subdesigns','Independent ANOVA, components, D-study; 28 comparisons','Not the joint Bayesian model or full mGENOVA design'),
+          ('Vispoel et al. BFI-2; 4,152 raw scores','mGENOVA P × I ANOVA, components, D-study; 47 checks','One complete, one-occasion P × I case')
         ]
         for vals in rows:
             cells=t.add_row().cells
             for c,v in zip(cells,vals):c.text=v
+        header_props=t.rows[0]._tr.get_or_add_trPr()
+        header_repeat=OxmlElement('w:tblHeader')
+        header_repeat.set(qn('w:val'),'true')
+        header_props.append(header_repeat)
         for row in t.rows:
+            row_props=row._tr.get_or_add_trPr()
+            no_split=OxmlElement('w:cantSplit')
+            row_props.append(no_split)
             for cell in row.cells:
                 for x in cell.paragraphs:
                     for r in x.runs:r.font.size=Pt(8)
