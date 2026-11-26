@@ -1,10 +1,12 @@
 cff-version: 1.2.0
-message: "Please cite GENOVA Studio using the metadata below after the author and release fields have been finalized."
+message: "If you use GENOVA Studio, please cite it using the metadata below."
 title: "GENOVA Studio"
 version: 1.0.0
 type: software
 authors:
-  - name: "PLACEHOLDER — authors to be filled before public release"
+  - family-names: "Gui"
+    given-names: "Yi"
+    email: "ygui@measinc.com"
 license: BSD-3-Clause
 repository-code: "https://github.com/YIGUI-ai/genova-studio"
 doi: "10.5281/zenodo.24358906"

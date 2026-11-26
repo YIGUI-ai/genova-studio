@@ -1,6 +1,10 @@
 # GENOVA Studio: A visual macOS application for generalizability theory
 
-Author and corresponding-author details to be confirmed before submission.
+Yi Gui a,*
+
+a Measurement Incorporated, Durham, North Carolina, USA [affiliation address to be confirmed]
+
+* Corresponding author. E-mail address: ygui@measinc.com
 
 ## Abstract
 
@@ -36,7 +40,7 @@ The results view presents a data preview, ANOVA output, variance components, app
 
 [FIGURE 2]
 
-## 3 Illustrative examples and verification
+## 3 Illustrative examples
 
 The bundled P × (I:R) example has 10 persons, three rater groups, four items per group, and 120 observations. The user imports its long table, assigns person and score, nests item within rater group, and runs a balanced G-study and D-study. With three groups and one item per group, the estimated universe-score variance is 0.47315, G is 0.32562, and Phi is 0.26622. At four items per group, G and Phi rise to 0.55144 and 0.46370. These values illustrate sensitivity to a proposed sampling design; the program does not decide whether a coefficient is adequate for a specific use. Figure 3 shows the calculated grid and its visualization. The official balanced regression case produces the supplied jGENOVA full report after normalizing run date and newline style.
 
@@ -54,23 +58,39 @@ A separately supplied BFI-2 dataset corresponding to Vispoel et al. [14] provide
 
 The urGENOVA pilots reproduce selected printed ANOVA and component values in manual Appendices A and D–H; an Appendix C balanced example is cross-checked with jGENOVA. The mGENOVA pilots match selected manual Appendices B–D, including alternate D-study counts and unequal-weight cases. Additional synthetic, order-invariance, and invalid-input checks test the implemented contracts. Agreement on these cases does not establish equivalence to every historical program configuration or to the original Windows executables, which were not run as black-box references here.
 
-## 4 Impact and limitations
+## 4 Impact
 
 GENOVA Studio allows a researcher to retain a tabular data source while explicitly stating design choices and reviewing analysis output in one interface. Three kinds of use follow. First, applied G-theory questions that previously required editing a new control card for each scenario can be posed directly from the data table: a rater study, for example, can compare G and Phi across planned numbers of raters and nested items per rater on one heatmap, with each grid point computed by the unchanged jGENOVA engine. Second, it could support teaching, because the pathway from a long-format spreadsheet to a design specification and then to ANOVA terms, variance components, and D-study indices is visible at each step, and invalid designs are rejected with a named reason rather than silently coerced. Third, the bounded new Java engines make selected unbalanced and multivariate structures reachable from the same workflow without introducing a second control-card format. The GUI names the selected engine and refuses unsupported designs instead of implying that all GENOVA-family methods share one implementation or one evidence base.
 
-The current Apple Silicon macOS build is available as a public versioned release [15]. Balanced analyses require complete cells for the chosen design. urGENOVA pilots offer six G-study structures without D-study output; mGENOVA pilots offer two complete-cell structures. Several pilots reject inputs above 5,000 observations, limiting them to bounded examples. External checks have different inferential reach: one balanced raw-data case, one multivariate P × I raw-data case, two balanced OSF subdesigns, and a published-components D-study oracle. No measured usability advantage, external adoption, or general equivalence to original unbalanced and multivariate executables is claimed. The authors publicly provide jGENOVA source and permit free distribution [3]; it remains unchanged and outside GENOVA Studio's BSD-3-Clause license. Author and support metadata remain to be finalized before journal submission.
+The current Apple Silicon macOS build is available as a public versioned release [15]. Balanced analyses require complete cells for the chosen design. urGENOVA pilots offer six G-study structures without D-study output; mGENOVA pilots offer two complete-cell structures. Several pilots reject inputs above 5,000 observations, limiting them to bounded examples. External checks have different inferential reach: one balanced raw-data case, one multivariate P × I raw-data case, two balanced OSF subdesigns, and a published-components D-study oracle. No measured usability advantage, external adoption, or general equivalence to original unbalanced and multivariate executables is claimed. The authors publicly provide jGENOVA source and permit free distribution [3]; it remains unchanged and outside GENOVA Studio's BSD-3-Clause license.
 
 ## 5 Conclusions
 
 GENOVA Studio combines table import, visual design specification, explicit validation, local analysis, structured exports, and D-study exploration for a defined set of G-theory designs. It retains the original jGENOVA computation for supported balanced work and provides separately implemented urGENOVA and mGENOVA pilots with stated design limits. Official examples, independent calculations, and external data provide complementary but bounded validation. Version 1.0.0 is publicly archived with a version DOI [15]; independent use in applied studies remains the next opportunity to test practical impact.
 
+## CRediT authorship contribution statement
+
+Yi Gui: Conceptualization, Methodology, Software, Validation, Formal analysis, Data curation, Writing - original draft, Writing - review & editing, Visualization, Project administration.
+
+## Declaration of competing interest
+
+The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+## Declaration of generative AI and AI-assisted technologies in the writing process
+
+During the preparation of this work the author used OpenAI Codex and Anthropic Claude to assist with drafting and editing the manuscript text. The author reviewed and edited the content as needed and takes full responsibility for the content of the published article, including its sources and technical claims.
+
+## Funding
+
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+## Data availability
+
+The GENOVA Studio source code, bundled example datasets, and validation scripts are publicly available in the GitHub repository https://github.com/YIGUI-ai/genova-studio and are archived with a version DOI [15]. The external validation sources are identified in Section 3: the mixed-format response data of Jiang et al. are publicly archived on OSF [10]; the balanced raw scores of Gleser et al. [7] and the published variance components of Karatoprak Ersen et al. [8] are taken from the cited articles. The item-level BFI-2 data used for the multivariate check were supplied for this validation by the authors of Vispoel et al. [14] and are not redistributed here; requests for those data should be directed to the original authors.
+
 ## Acknowledgements
 
 The original jGENOVA statistical core was developed by Joe E. Crick and Robert L. Brennan.
-
-## Declaration of generative AI use
-
-OpenAI Codex and Anthropic Claude were used to assist with drafting and editing this manuscript. The human author is responsible for reviewing the final text, checking its sources and technical claims, and approving the submitted version.
 
 ## References
 
@@ -89,4 +109,4 @@ OpenAI Codex and Anthropic Claude were used to assist with drafting and editing 
 [13] Smith TJ, Kline TJB, Kline AS. GeneralizIT: A Python solution for generalizability theory computations. arXiv:2411.17880; 2024.
 
 [14] Vispoel WP, Lee H, Hong H, Chen T. Applying multivariate generalizability theory to psychological assessments. Psychol Methods. 2023. https://doi.org/10.1037/met0000606.
-[15] GENOVA Studio contributors. GENOVA Studio. Version 1.0.0. Zenodo; 2026. https://doi.org/10.5281/zenodo.24358906.
+[15] Gui Y. GENOVA Studio. Version 1.0.0. Zenodo; 2026. https://doi.org/10.5281/zenodo.24358906.
