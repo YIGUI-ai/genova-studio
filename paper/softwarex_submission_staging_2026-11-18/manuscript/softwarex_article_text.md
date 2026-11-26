@@ -2,7 +2,7 @@
 
 Yi Gui a,*
 
-a Measurement Incorporated, Durham, North Carolina, USA [affiliation address to be confirmed]
+a Measurement Incorporated, 423 Morris St, Durham, NC 27701, USA
 
 * Corresponding author. E-mail address: ygui@measinc.com
 
